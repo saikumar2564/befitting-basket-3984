@@ -17,3 +17,13 @@ const productSchema = mongoose.Schema(
 
 const productModel = mongoose.model("product", productSchema);
 module.exports = { productModel };
+
+// {
+//   "image1": "kkk",
+//   "image2": "kioo",
+//   "name": "Harman",
+//   "brand": "Keltic",
+//   "size": 12,
+//   "gender": "male",
+//   "price": 4500,
+// }

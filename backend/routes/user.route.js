@@ -5,7 +5,7 @@ const { userModel } = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 // const { authentication } = require("../middlewares/auth.middleware");
-// const redisClient = require("../helpers/redis");
+const redisClient = require("../helpers/redis");
 
 //signup route
 userRouter.post("/signup", async (req, res) => {
@@ -67,22 +67,22 @@ userRouter.post("/login", async (req, res) => {
 });
 
 //logout
-// userRouter.get("/logout", async (req, res) => {
-//   try {
-//     const logoutToken = req.headers.authorization;
+userRouter.get("/logout", async (req, res) => {
+  try {
+    const logoutToken = req.headers.authorization;
 
-//     if (!logoutToken) {
-//       return res.status(400).send({ msg: "invalid token" });
-//     }
-//     // await redisClient.set(logoutToken, logoutToken);
-//     redisClient.set("token", logoutToken, (error, result) => {
-//       if (result) {
-//         console.log("Data stored in Redis:", result);
-//       }
-//     });
-//     res.status(200).send({ msg: "logout successful " });
-//   } catch (error) {
-//     res.status(400).send({ msg: error.message });
-//   }
-// });
+    if (!logoutToken) {
+      return res.status(400).send({ msg: "invalid token" });
+    }
+    // await redisClient.set(logoutToken, logoutToken);
+    redisClient.set("token", logoutToken, (error, result) => {
+      if (result) {
+        console.log("Data stored in Redis:", result);
+      }
+    });
+    res.status(200).send({ msg: "logout successful " });
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+  }
+});
 module.exports = { userRouter };
