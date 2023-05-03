@@ -1,19 +1,22 @@
 const express = require("express");
 const userRouter = express.Router();
+const { userModel } = require("../models/user.model");
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { userModel } = require("../models/user.model");
-const { authentication } = require("../middlewares/auth.middleware");
-const redisClient = require("../helpers/redis");
+// const { authentication } = require("../middlewares/auth.middleware");
+// const redisClient = require("../helpers/redis");
 
 //signup route
 userRouter.post("/signup", async (req, res) => {
   console.log(req.body);
   const { name, email, gender, password, phoneNo } = req.body;
   try {
-    const isUserPresent = await user.findOne({ email });
+    const isUserPresent = await userModel.findOne({ email });
     if (isUserPresent) {
-      return res.status(400).send("User already Present, login please");
+      return res
+        .status(400)
+        .send({ msg: "User already Present, login please" });
     }
     const hashedPassword = await bcrypt.hash(password, 8);
     const newUser = new userModel({
@@ -24,6 +27,7 @@ userRouter.post("/signup", async (req, res) => {
       phoneNo,
     });
     await newUser.save();
+    res.status(400).send({ msg: "new user is added" });
   } catch (error) {
     res.status(400).send({ msg: error.message });
   }
@@ -34,9 +38,11 @@ userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const isUserPresent = await userModel.findOne({ email });
-
+    console.log(isUserPresent);
     if (!isUserPresent) {
-      return res.status.send({ msg: "User not present, ceate account" });
+      return res
+        .status(400)
+        .send({ msg: "email not registered, create an account" });
     }
 
     const isPasswordCorrect = await bcrypt.compare(
@@ -45,7 +51,7 @@ userRouter.post("/login", async (req, res) => {
     );
 
     if (!isPasswordCorrect) {
-      return res.status.send({ msg: "wrong password" });
+      return res.status(400).send({ msg: "wrong password" });
     }
 
     const token = await jwt.sign(
@@ -56,23 +62,27 @@ userRouter.post("/login", async (req, res) => {
 
     res.status(200).send({ msg: "login successful ", token: token });
   } catch (error) {
-    res.status(400).send({ msg: "email already registered, please log in" });
+    res.status(400).send({ msg: error });
   }
 });
 
 //logout
-userRouter.get("/logout", authentication, async (req, res) => {
-  try {
-    const logoutToken = req.headers.authorization;
+// userRouter.get("/logout", async (req, res) => {
+//   try {
+//     const logoutToken = req.headers.authorization;
 
-    if (!logoutToken) {
-      res.status(400).send({ msg: "invalid token" });
-      return;
-    }
-    await redisClient.set(token, token);
-    res.status(200).send({ msg: "logout successful " });
-  } catch (error) {
-    res.status(400).send({ msg: error.message });
-  }
-});
+//     if (!logoutToken) {
+//       return res.status(400).send({ msg: "invalid token" });
+//     }
+//     // await redisClient.set(logoutToken, logoutToken);
+//     redisClient.set("token", logoutToken, (error, result) => {
+//       if (result) {
+//         console.log("Data stored in Redis:", result);
+//       }
+//     });
+//     res.status(200).send({ msg: "logout successful " });
+//   } catch (error) {
+//     res.status(400).send({ msg: error.message });
+//   }
+// });
 module.exports = { userRouter };
