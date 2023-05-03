@@ -1,6 +1,5 @@
 const express = require("express");
 const productRouter = express.Router();
-const jwt = require("jsonwebtoken");
 const { productModel } = require("../models/product.model");
 
 //adding products to DB

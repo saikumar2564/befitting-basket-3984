@@ -4,12 +4,17 @@ require("dotenv").config();
 const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.route");
 const { productRouter } = require("./routes/product.route");
-const { authentication } = require("./middlewares/auth.middleware");
+// const { authentication } = require("./middlewares/auth.middleware");
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.get("/", (req, res) => {
+  res.status(200).send({ msg: "hello" });
+});
 app.use("/users", userRouter);
-app.use(authentication);
+
+//authentication
+// app.use(authentication);
 
 app.use("/products", productRouter);
 app.listen(process.env.PORT, async () => {
@@ -20,5 +25,5 @@ app.listen(process.env.PORT, async () => {
     console.log("can't connect to db");
   }
 
-  console.log("server is running at " + process.env.port);
+  console.log("server is running at " + process.env.PORT);
 });
