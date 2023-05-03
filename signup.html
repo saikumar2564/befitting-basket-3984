@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="SRC CSS/signup.css">
+    <link rel="stylesheet" href="SRC CSS/navbar.css" />
+    <link rel="stylesheet" href="SRC CSS/footer.css" />
+    <link rel="icon" type="image/x-icon" href="image/logoAsset 3@4x-8.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Start Navbar code Here -->
+    <div id="container">
+        <div class="top-section">
+            <nav class="navbar">
+                <div class="logo">
+                    <a>
+                        <img style="width: 180px; margin: -10px;" onclick="window.location.href='index.html';"
+                            src="./image/logoAsset 3@4x-8.png" alt="" />
+                    </a>
+                </div>
+                <div class="main-menu">
+                    <div class="search">
+                        <input type="text" placeholder="Find Something Famous For You" />
+                        <i class="fa fa-magnifying-glass"></i>
+                    </div>
+                    <div class="icons">
+                        <a>
+                            <img onclick="window.location.href ='login.html';" class="icon-top" width="10px"
+                                src="./image/user (1).png" alt="">
+
+                            <p id="signoutButton"></p>
+                        </a>
+                        <a href="">
+                            <img class="icon-top" width="10px"
+                                src="./image/flat-simple-white-heart-icon-on-isolated-white-vector-28983972.jpg" alt="">
+                        </a>
+                        <a onclick="window.location.href ='cart.html';">
+                            <img class="icon-top" width="10px" src="./image/shopping-bag (1).png" alt=""></a>
+                    </div>
+                </div>
+                <div class="info-menu">
+                    <ul>
+                        <li>
+                            <a href="./menu.html" id="Menu"><strong>Menu</strong></a>
+                            <!-- <div id="sub-menu">
+                            <div class="section-1">
+                                <div class="information">
+                                    <strong>Spotlight On</strong>
+                                    <br>
+                                    <div>
+                                        <a href="./menu.html">New Arrivals</a>
+                                    </div>
+                                    <div>
+                                        <a href="./menu.html">Eco-Conscious Style</a>
+                                    </div>
+                                    <strong>Shop by Occasion</strong>
+                                    <br>
+                                    <div>
+                                        <a href="./menu.html">Wedding & Events</a>
+                                    </div>
+                                    <div>
+                                        <a href="./menu.html">Beach Gateway</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="section-2">
+                                <a class="img" href="">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/wk2_020823_site_ads_mega_nav_spg23_getaway.jpg"
+                                        alt="">
+                                    <H3>GETAWAY SHOP</H3>
+                                </a>
+                                <a class="img" href="">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/mega_nav_spg23_wsneakershop.jpg"
+                                        alt="">
+                                    <H3>SNEAKER SHOP</H3>
+                                </a>
+                                <a class="img" href="">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/wk2_020823_site_ads_mega_nav_spg23_activeshop.jpg"
+                                        alt="">
+                                    <h3>ACTIVE SHOP</h3>
+                                </a>
+                                <a class="img" href="">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/wk2_020823_site_ads_mega_nav_spg23_eventedit.jpg"
+                                        alt="">
+                                    <h3>EVENT EDIT</h3>
+                                </a>
+                            </div>
+                        </div> -->
+                        </li>
+                        <li>
+                            <a href="" id="New-Now"><strong>New & Now</strong></a>
+                            <div id="sub-menu">
+                                <div class="section-1">
+                                    <div class="information">
+                                        <strong>Spotlight On</strong>
+                                        <br>
+                                        <div>
+                                            <a href="./menu.html">New Arrivals</a>
+                                        </div>
+                                        <div>
+                                            <a href="./menu.html">Eco-Conscious Style</a>
+                                        </div>
+                                        <strong>Shop by Occasion</strong>
+                                        <br>
+                                        <div>
+                                            <a href="./menu.html">Wedding & Events</a>
+                                        </div>
+                                        <div>
+                                            <a href="./menu.html">Beach Gateway</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="section-2">
+                                    <a class="img" href="">
+                                        <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/wk2_020823_site_ads_mega_nav_spg23_getaway.jpg"
+                                            alt="">
+                                        <H3>GETAWAY SHOP</H3>
+                                    </a>
+                                    <a class="img" href="">
+                                        <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/mega_nav_spg23_wsneakershop.jpg"
+                                            alt="">
+                                        <H3>SNEAKER SHOP</H3>
+                                    </a>
+                                    <a class="img" href="">
+                                        <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/wk2_020823_site_ads_mega_nav_spg23_activeshop.jpg"
+                                            alt="">
+                                        <h3>ACTIVE SHOP</h3>
+                                    </a>
+                                    <a class="img" href="">
+                                        <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/new-and-now/2023/spring/wk2_020823_site_ads_mega_nav_spg23_eventedit.jpg"
+                                            alt="">
+                                        <h3>EVENT EDIT</h3>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="" id="Women"><strong>Women</strong></a>
+                            <div class="women-sub-menu">
+                                <div class="info-1">
+                                    <strong>Women's Shoes</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sneakers & Atheletics</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sandals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Heels</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Loafers & Oxfords</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Flats</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Clogs & Mules</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Bootes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Boot Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Work & Safety</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Apparel</strong>
+                                    <div>
+                                        <a href="">Tops</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Bottoms</a>
+                                    </div>
+                                    <strong>Other Ways to Shop</strong>
+                                    <div>
+                                        <a href="">Sale</a>
+                                    </div>
+                                    <div>
+                                        <a href="">New Arrivals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Black In Stock</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Eco-Conscious</a>
+                                    </div>
+                                    <strong>Spotlight On</strong>
+                                    <div>
+                                        <a href="">Sneakers Trends Shop</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Active & Outdoor Shop</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Wedding & Events</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Beach Gateway Style</a>
+                                    </div>
+                                </div>
+                                <div class="size">
+                                    <strong>Shop By size</strong>
+                                    <div id="size-grid">
+                                        <div>
+                                            <a href="">4.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">5.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">5.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">6.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">6.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">5.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">6.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">7.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">7.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">8.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">8.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">9.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">9.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">10.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">10.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">11.0</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="women-img">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/womens-tab/2023/spring/wk2_020823_site_ads_mega_nav_spg23_heydude.jpg"
+                                        alt="">
+                                    <a href="">HEYDUDE DUDE</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><strong>Men</strong></a>
+                            <div class="women-sub-menu">
+                                <div class="info-1">
+                                    <strong>Women's Shoes</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sneakers & Atheletics</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sandals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Heels</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Loafers & Oxfords</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Flats</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Clogs & Mules</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Bootes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Boot Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Work & Safety</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Apparel</strong>
+                                    <div>
+                                        <a href="">Tops</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Bottoms</a>
+                                    </div>
+                                    <strong>Other Ways to Shop</strong>
+                                    <div>
+                                        <a href="">Sale</a>
+                                    </div>
+                                    <div>
+                                        <a href="">New Arrivals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Black In Stock</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Eco-Conscious</a>
+                                    </div>
+                                    <strong>Spotlight On</strong>
+                                    <div>
+                                        <a href="">Sneakers Trends Shop</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Active & Outdoor Shop</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Wedding & Events</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Beach Gateway Style</a>
+                                    </div>
+                                </div>
+                                <div class="size">
+                                    <strong>Shop By size</strong>
+                                    <div id="size-grid">
+                                        <div>
+                                            <a href="">4.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">5.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">5.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">6.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">6.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">5.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">6.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">7.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">7.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">8.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">8.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">9.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">9.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">10.0</a>
+                                        </div>
+                                        <div>
+                                            <a href="">10.5</a>
+                                        </div>
+                                        <div>
+                                            <a href="">11.0</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="women-img">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/mens-tab/2023/spring/wk2_020823_site_ads_mega_nav_spg23_mens_nike.jpg"
+                                        alt="">
+                                    <a href="">SHOPE MEN'S NIKE</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><strong>Kids</strong></a>
+                            <div class="women-sub-menu">
+                                <div class="info-1">
+                                    <strong>Shope by Size</strong>
+                                    <div>
+                                        <a href="">Baby (0-3.5)</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Toddler (4-10)</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Little Kid (10.5-3)</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Big Kid (3.5-7)</a>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <a href="">View All Kid's Shoes</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Girls' Shoes</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sneakers & Atheletics</a>
+                                    </div>
+                                    <strong>Boots</strong>
+                                    <div>
+                                        <a href="">Sandals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Dress Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Boat Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Boys' Shoes</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sneakers & Atheletics</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sandals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Dress Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Boat Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Other Ways to Shop</strong>
+                                    <div>
+                                        <a href="">Sale</a>
+                                    </div>
+                                    <div>
+                                        <a href="">New Arrivals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Back in Stock</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Eco-Conscious</a>
+                                    </div>
+                                </div>
+                                <div class="women-img">
+                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/mega-menu/kids-tab/2023/spring/wk2_020823_site_ads_mega_nav_spg23_kids_skechers.jpg"
+                                        alt="">
+                                    <a href="">SHOP KIDS' SKECHERS</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><strong>Brands</strong></a>
+                            <div class="women-sub-menu">
+                                <div class="info-1">
+                                    <div class="Brand">
+                                        <div id="brand-grid">
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/nike.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/vans.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/adidas_update.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/converse.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/skechers.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a href="">
+                                                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/brand-logos/crocs.svg"
+                                                        alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </li>
+                        <li>
+                            <a href=""><strong>Accessories</strong></a>
+                            <div class="women-sub-menu">
+                                <div class="info-1">
+                                    <strong>Accessories</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Socks</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Bags</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Lanyards</a>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <a href="">Shoes Charms</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Water Bottles</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Hair Accessories</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Hats & Gloves</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Insoles & Inserts</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Bags</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sneakers & Atheletics</a>
+                                    </div>
+                                    <strong>Boots</strong>
+                                    <div>
+                                        <a href="">Sandals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Dress Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Boat Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Boys' Shoes</strong>
+                                    <div>
+                                        <a href="">View All</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sneakers & Atheletics</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Sandals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Dress Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Boat Shoes</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Slippers</a>
+                                    </div>
+                                </div>
+                                <div class="info-1">
+                                    <strong>Other Ways to Shop</strong>
+                                    <div>
+                                        <a href="">Sale</a>
+                                    </div>
+                                    <div>
+                                        <a href="">New Arrivals</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Back in Stock</a>
+                                    </div>
+                                    <div>
+                                        <a href="">Eco-Conscious</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a id="sale" href=""><i class="fa fa-tag"></i></i><strong>Your Sale</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- End Navbar code here -->
+    <div id="main">
+
+        <form id="login-form">
+            <div id="topWords">
+                <h1 id="createaccount">Create Account</h1>
+                <p>FAMOUSLY YOU REWARDS® members enjoy special savings and perks every day!</p>
+            </div>
+            <label>
+                <h2>First Name*</h2>
+            </label>
+            <input id="firstName" type="text" /><label>
+                <h2>Last Name*</h2>
+            </label>
+            <input id="lastName" type="text" /><label>
+                <h2>Email Address* </h2>
+            </label>
+            <input id="email" type="email" />
+
+            <p id="wrong_email"></p>
+            <label>
+                <h2>Password</h2>
+            </label>
+            <input id="password" type="password" />
+            <label>
+                <h2>Birth Day*</h2>
+            </label>
+            <input id="birthDay" type="text" />
+            <label>
+                <h2>Phone Number*</h2>
+            </label>
+            <input id="phoneNo" type="text" />
+            <p id="wrong_password"></p>
+            <ul>
+                <li class="don"><input class="checkbox" type="checkbox" />
+                    <p id="p"> By selecting the box, you agree
+                        to our
+                        Privacy
+                        Policy and
+                        Terms
+                        of Use.</p>
+                </li>
+                <li class="don"><input class="checkbox" type="checkbox" />
+                    <p id="p"> Sign up for Email updates and
+                        Promotions.</p>
+                </li>
+            </ul>
+
+            <p id="login_successful"></p>
+            <input type="submit" id="button" value="CREATE ACCOUNT/REGISTER" />
+            <p id="bottom-line-login-now">Already have an account? <a href="login.html">Log in Now</a></p>
+            <div id="bottom">
+                <h2>Or Sign up With</h2>
+                <img src="SRC Image/image.png" alt="">
+            </div>
+        </form>
+        <div id="imgSignin">
+            <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/rewards-images/rewards-refresh-2022/create-account-lp/wk25_071822_rewards_refresh_web_lp_create_account_us_only_hero.jpg"
+                alt="">
+        </div>
+
+    </div>
+
+
+
+    <hr style="width: 100%;margin-top: 50px;border: 2px solid  rgb(241, 9, 102);">
+    <!-- footer code start from here -->
+    <div class="footer">
+        <footer>
+            <div class="social-media">
+                <strong>CONNECT WITH US</strong>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-square-facebook fa-2x"></i></i></a>
+                    <a href=""><i class="fa-brands fa-square-pinterest fa-2x"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube fa-2x"></i></a>
+                    <a href=""></a>
+
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="sub-links">
+                    <div class="stores">
+                        <div>STORES</div>
+                        <div>
+                            <a href="">Famously Fast Pickup</a>
+                        </div>
+                        <div>
+                            <a href="">Find A Store</a>
+                        </div>
+                    </div>
+                    <div class="stores">
+                        <div>FAMOUSLY YOU</div>
+                        <div>
+                            <a href="">Sign In/ JOin Now</a>
+                        </div>
+                        <div>
+                            <a href="">Learn Now</a>
+                        </div>
+                        <div>
+                            <a href="">Credit Card</a>
+                        </div>
+                        <div>
+                            <a href="">Mobile App</a>
+                        </div>
+                        <div>
+                            <a href="">Rewards Terms</a>
+                        </div>
+                    </div>
+                    <div class="stores">
+                        <div>HELP</div>
+                        <div>
+                            <a href="">FAQ/Contact Us</a>
+                        </div>
+                        <div>
+                            <a href="">Shipping & Returns</a>
+                        </div>
+                        <div>
+                            <a href="">Exclusions</a>
+                        </div>
+                        <div>
+                            <a href="">Track My Order</a>
+                        </div>
+                        <div>
+                            <a href="">Gift Cards</a>
+                        </div>
+                        <div>
+                            <a href="">Shoes Size Charts</a>
+                        </div>
+                        <div>
+                            <a href="">Zip</a>
+                        </div>
+                        <div>
+                            <a href="">Unsucribe from Email</a>
+                        </div>
+                        <div>
+                            <a href="">Accessibility</a>
+                        </div>
+                        <div>
+                            <a href="">Do Not Sell Or Share My</a>
+                        </div>
+                        <div>
+                            <a href="">Personal Information</a>
+                        </div>
+                    </div>
+                    <div class="stores">
+                        <div>ABOUT US</div>
+                        <div>
+                            <a href="">About Us</a>
+                        </div>
+                        <div>
+                            <a href="">Careers</a>
+                        </div>
+                        <div>
+                            <a href="">Ticket to Dream</a>
+                        </div>
+                        <div>
+                            <a href="">Site Map</a>
+                        </div>
+                        <div>
+                            <a href="">Eco-Conscious</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="img-subinfo">
+                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/rewards-images/plcc-double.png?w=+1440&hash=68621878391AE4CD59361AC547BEFA9F"
+                        alt="">
+                </div>
+                <div class="boldtag">
+                    <h5>FAMOUSLY YOU REWARDS</h5>
+                    <h5>Credit card</h5>
+                </div>
+
+            </div>
+            <div class="last-tnstruction">
+                <p><sup>1</sup> Yes, I would like to receive emails with trends, updates & special offers a few times a
+                    week. By providing my information, I am certifying that I am at least 18 years old. Note: we collect
+                    and use the information you provide in accordance with our <a class="policy" href="">Privacy
+                        Policy</a> </p>
+            </div>
+        </footer>
+    </div>
+    <!-- footer code end here -->
+
+
+</body>
+<script src="SRC JS/signup.js"></script>
+<!-- <script src="SRC JS/navbar.js"></script> -->
+
+</html>
