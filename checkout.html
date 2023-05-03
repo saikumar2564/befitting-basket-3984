@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="icon" type="image/x-icon" href="image/logoAsset 3@4x-8.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="SRC CSS/checkout.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div>
+
+            <div>
+                <p>
+                <p id="topback">Back to Cart
+                </p>
+            </div>
+            <div>
+                <img onclick="window.location.href='index.html';" src="image/logoAsset 3@4x-8.png" alt="" logo>
+            </div>
+            <div id="bagcount">
+                <span id="itemcounts">0</span>
+                <img onclick="window.location.href='cart.html';"
+                    src="https://cdn1.iconfinder.com/data/icons/e-commerce-320/512/bag-512.png" alt="" id="carticon">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="delivery">
+            <div id="headsection">
+                <p>Check out quickly with</p>
+                <div id="quick">
+                    <div id="paypal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2560px-PayPal_logo.svg.png"
+                            alt="">Checkout
+                    </div>
+                    <div id="google">
+                        <img src="https://www.nicepng.com/png/full/769-7692974_googlepay-2-google-pay-logo-black.png"
+                            alt="">
+                    </div>
+                </div>
+                <p>or continue below for all payment methods</p>
+            </div>
+            <div id="deliveryaddress">
+                <div id="dilhead">
+                    <h2>1. Delivery</h2>
+                </div>
+            </div>
+            <div id="contact">
+                <h2>Contact Information</h2>
+                <div id="contactinfo">
+                    <p>Email Address*
+                    <p>
+                    <p>For shipping confirmation</p>
+                    <input type="text" name="email" id="email" placeholder="Enter your mail here" required>
+                    <div id="accept">
+                        <input type="checkbox" class="checks">
+                        <p>Yes, I would like to receive emails with trends, updates & special offers a few times a week.
+                            By providing my information, I am certifying that I am at least 18 years old. Note: we
+                            collect and use the information you provide in accordance with our <span id="pp">Privacy
+                                Policy</span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="myaddress">
+                <h2>Shipping Address</h2>
+                <div id="form">
+                    <p>My saved address</p>
+                    <select name="" id="select">
+                        <option value="add1">
+                            Use a different Addresses
+                        </option>
+                    </select>
+                    <div id="names">
+                        <div id="fname">
+                            <p>First Name*</p>
+                            <input type="text" id="firstname" required>
+                        </div>
+                        <div id="lname">
+                            <p>Last Name*</p>
+                            <input type="text" id="lastname" required>
+                        </div>
+                    </div>
+                    <div id="street">
+                        <p>Street Address*</p>
+                        <input type="text" id="streedadds" required>
+                    </div>
+                    <div id="optional">
+                        <p>Apt/Suite/etc. (Optional)</p>
+                        <input type="text" id="opt">
+                    </div>
+                    <div id="csz">
+                        <div id="cities">
+                            <p>City*</p>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div id="states">
+                            <p>State*</p>
+                            <select id="state" required>
+                                <option value="state">State</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                            </select>
+                        </div>
+                        <div id="zip">
+                            <p>Zip*</p>
+                            <input type="text" id="zipcode" required>
+                        </div>
+                    </div>
+                    <div id="phone">
+                        <h3>Phone*</h3>
+                        <p>For shipping-related questions</p>
+                        <input type="text" placeholder="6254424872" id="phonenumber" required>
+                    </div>
+                    <div id="save">
+                        <input type="checkbox" checked>
+                        <p>Save as Primary Shipping Address</p>
+                    </div>
+                </div>
+            </div>
+            <div id="payment">
+                <h2>2. Payment</h2>
+            </div>
+            <div id="paymentcard">
+                <h3>Card Details:</h3>
+                <div id="carddetails">
+                    <input type="text" id="cardholdername" placeholder="Card holder name"><br><br>
+                    <input type="number" id="cardnumber" placeholder="Card number"><br><br>
+                    <input type="text" id="expirydate" placeholder="Expiry date">
+                    <input type="text" id="cvv" placeholder="CVV">
+                </div>
+            </div>
+            <div id="review">
+                <h2>3. Review</h2>
+            </div>
+            <div id="sspeed">
+                <button id="submitbtn">CONFIRM ORDER</button>
+            </div>
+        </div>
+        <div id="summery">
+            <div id="ordersummery">
+                <h5>Order Summary</h5>
+                <div id="subtotals">
+                    <p>Subtotal</p>
+                    <p id="totalprice">00.00</p>
+                </div>
+                <div id="shipingcharge">
+                    <p>Standard Ground Shipping</p>
+                    <p>Free</p>
+                </div>
+                <hr>
+                <div id="estimated">
+                    <p>Estimated Total</p>
+                    <p id="estimatedtotal">00.00</p>
+                </div>
+                <div id="zip2">
+                    <div>
+
+                        <p style="line-height: 20px;">or <span id="totalcount"></span> payments of <span
+                                id="zipdoller">₹50.00</span> with</p>
+
+
+                    </div>
+                    <div id="zipimg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Zip_Logo.svg/1200px-Zip_Logo.svg.png"
+                            alt="">
+                    </div>
+                </div>
+                <p id="taxes">Taxes calculated at checkout</p>
+                <hr>
+            </div>
+            <div id="summeryproduct">
+                <div class="products">
+                    <div id="image">
+                        <img src="https://www.famousfootwear.com/blob/product-images/20000/38/32/6/38326_right_small.jpg"
+                            alt="" id="img">
+                        <p id="style">Style #38326</p>
+                    </div>
+                    <div id="info">
+                        <p id="title">Men's Air Max Alpha Trainer 5 Sneaker</p>
+                        <p id="shoesize">Size: 7.0</p>
+                        <p>Width: Medium</p>
+                        <p>Color: Brown/Red/Gum</p>
+                        <p id="priceofshoe">$179.98</p>
+                        <p class="promo">BOGO 1st pair only</p>
+                        <p class="promo">Excluded from Promo</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <div>
+                <p>
+                    < <p id="backtocart">Back to Cart
+                </p>
+            </div>
+            <div>
+                <p id="q">©2023 Caleres, Inc.
+                    (NYSE: CAL)</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="SRC JS/checkout.js"></script>
+
+
+</html>
