@@ -15,11 +15,12 @@ productRouter.post("/add", async (req, res) => {
   }
 });
 
-//getting data of products from DB
+//getting all the data of products from DB
 productRouter.get("/", async (req, res) => {
   try {
-    console.log(getPost);
-    res.status(200).send(getPost);
+    const getProduct = await productModel.find();
+    console.log(getProduct);
+    res.status(200).send(getProduct);
   } catch (error) {
     res.status(400).send({ msg: error.message });
   }
