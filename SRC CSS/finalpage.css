@@ -1,0 +1,41 @@
+h1,
+h3,
+#shop_again {
+  font-family: Tahoma, serif, thin;
+
+  color: #000000;
+}
+#thank_you_div {
+  width: 99vw;
+  height: 98vh;
+  background-image: url("/image/thank_you.gif");
+  /* border: 1px solid black; */
+  text-align: center;
+  margin-top: -50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  font-size: 50px;
+
+  margin-top: 200px;
+  color: #727272;
+}
+h3 {
+  font-size: 40px;
+  margin: auto;
+  margin-top: 30px;
+}
+#shop_again {
+  color: rgb(0, 0, 0);
+
+  width: 20%;
+}
+#shop_again:hover {
+  font-style: underline;
+
+  cursor: pointer;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 5px;
+}

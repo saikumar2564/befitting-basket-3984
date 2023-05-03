@@ -1,0 +1,340 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  /* // font-family: "Famous Footwear Sans", sans-serif; */
+  color: #333f48;
+}
+
+#offbanner {
+  background-color: #333f48;
+  color: white;
+}
+#offbanner > div {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+}
+#offbanner > div > p:nth-child(1) {
+  font-size: 14px;
+}
+#offbanner > div > p:nth-child(2) {
+  font-size: 12px;
+}
+#headimage {
+  width: 100%;
+}
+#headimage > img {
+  width: 100%;
+}
+#categorytitle {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#h1 {
+  font-size: 28px;
+  line-height: 0.5;
+}
+#p {
+  font-size: 14px;
+}
+#procount {
+  width: 80%;
+  margin: auto;
+  font-size: 14px;
+}
+#mainbox {
+  display: flex;
+  margin: auto;
+  width: 80%;
+  /* border: 2px solid black; */
+  gap: 30px;
+}
+#filterbox {
+  width: 15%;
+  /* border: 2px solid red; */
+}
+#filter1 > p {
+  color: #7c878e;
+  font-size: 16px;
+  font-weight: 600;
+}
+#filterby {
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 1.42857143;
+  letter-spacing: 0.0125rem;
+  border: 2px solid #7c878e;
+  border-radius: 2px;
+  padding-left: 8px;
+  background-image: url("https://www.famousfootwear.com/-/media/Themes/Tenant/Famous%20Footwear/Famous%20Footwear%20Default/images/icons/icon_arrow_down.svg");
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 8px);
+  background-position-y: center;
+  background-position: calc(100% - 10px) center;
+  background-size: 2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#brandfilter,
+#pricefilter {
+  margin-top: 10px;
+}
+#brandfilter > div:nth-child(1),
+#pricefilter > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  align-items: center;
+}
+#brandplus,
+#priceplus {
+  font-size: 30px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+#brandfilter > div:nth-child(2) > p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.brandchecks > label,
+.pricechecks > label {
+  display: flex;
+  font-size: 14px;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+input.checkbrand,
+input.price {
+  width: 28px;
+  height: 28px;
+}
+#brdchk,
+#prcchk {
+  display: none;
+}
+#sizefilter > p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.btn {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.btn > button {
+  width: 44px;
+  height: 44px;
+  background-color: white;
+  border: 1px solid #878787;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn > button:hover {
+  background-color: #333f48;
+  color: white;
+}
+
+/*Products box css start*/
+#products {
+  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  float: right;
+}
+#products > div {
+  text-align: center;
+  width: 100%;
+  height: 400px;
+}
+#img1 {
+  width: 200px;
+  height: 100px;
+  margin: auto;
+  margin-top: 50px;
+}
+#img1 > img {
+  width: 200px;
+  height: 100px;
+}
+#products > div > div > img {
+  width: 100%;
+}
+#heart {
+  width: 18px;
+  float: right;
+  cursor: pointer;
+}
+#heart:hover {
+  width: 21px;
+}
+#rating {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  font-size: 10px;
+  justify-content: space-evenly;
+}
+#proinfo > h2 {
+  margin-top: 30px;
+  color: rgb(0, 134, 236);
+  font-size: 15px;
+}
+#proinfo > h3 {
+  font-size: 14px;
+  line-height: 0px;
+}
+#proinfo > p {
+  font-size: 14px;
+  line-height: 1.7142857143;
+}
+#paginationstart {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+}
+#beforepages {
+  width: 15%;
+}
+#protitle {
+  height: 40px;
+}
+#pages {
+  width: 85%;
+  text-align: center;
+  float: right;
+}
+#pages > button {
+  width: 44px;
+  height: 44px;
+  background-color: white;
+  border: 1px solid #333f48;
+  border-radius: 0px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+#lasthr {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 100px;
+}
+#pages > button:hover {
+  background-color: #333f48;
+  color: white;
+}
+#protitle {
+  cursor: pointer;
+}
+
+#img1 {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Tahoma, sans-serif;
+  color: #333f48;
+}
+a {
+  font-family: Tahoma, serif, thin;
+
+  color: #333f48;
+  font-size: 12px;
+}
+
+#spinner {
+  animation: spin 1s linear infinite;
+  color: rgb(121, 121, 121);
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.inline {
+  display: flex;
+}
+.spinner i {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+#con9 {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+#con9 > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px;
+}
+#con9 > div > div:nth-child(1) {
+  text-align: right;
+}
+#con9 > div > div:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+}
+#con9 img {
+  width: 70%;
+  text-align: right;
+
+}
+
+
+#mainbox{
+  padding: 20px;
+}
+#mainbox>div{
+  margin: 20px;
+}
+@media only screen and (max-width: 1000px){
+
+  #products{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+@media only screen and (max-width: 750px){
+  
+  #products{
+    #mainbox>div{
+      margin: 30px;
+    }
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+  #con9{
+    display: grid;
+    grid-template-columns: repeat(2,1fr)
+  }
+
+#bagcount {
+  display: flex;
+  align-items: center;
+}
+#bagcount > span {
+  font-size: 20px;
+
+}
+
