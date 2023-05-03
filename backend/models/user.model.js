@@ -19,7 +19,7 @@ module.exports = { userModel };
 // {
 //     "name": "Ankit",
 //     "email": "ankit@gmail.com",
-//     "gender": "male",
 //     "password": "45fkjf",
+//     "gender": "male",
 //     "phoneNo": 20000000
 //   }

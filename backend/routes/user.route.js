@@ -2,9 +2,10 @@ const express = require("express");
 const userRouter = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { userModel } = require("../models/users.model");
-const { authentication } = require("./middlewares/auth.middleware");
+const { userModel } = require("../models/user.model");
+const { authentication } = require("../middlewares/auth.middleware");
 const redisClient = require("../helpers/redis");
+
 //signup route
 userRouter.post("/signup", async (req, res) => {
   console.log(req.body);
@@ -14,9 +15,7 @@ userRouter.post("/signup", async (req, res) => {
     if (isUserPresent) {
       return res.status(400).send("User already Present, login please");
     }
-
     const hashedPassword = await bcrypt.hash(password, 8);
-
     const newUser = new userModel({
       name,
       email,
