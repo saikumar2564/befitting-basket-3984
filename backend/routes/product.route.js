@@ -6,7 +6,7 @@ const { productModel } = require("../models/product.model");
 //adding products to DB
 productRouter.post("/add", async (req, res) => {
   console.log(req.body);
-  const { name, brand, size, gender, price } = req.body;
+  const { image1, image2, name, brand, size, gender, price } = req.body;
   try {
     const newProduct = new productModel(req.body);
     await newProduct.save();
