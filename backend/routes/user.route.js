@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { userModel } = require("../models/users.model");
 const { authentication } = require("./middlewares/auth.middleware");
+const redisClient = require("../helpers/redis");
 //signup route
 userRouter.post("/signup", async (req, res) => {
   console.log(req.body);
@@ -69,7 +70,7 @@ userRouter.get("/logout", authentication, async (req, res) => {
       res.status(400).send({ msg: "invalid token" });
       return;
     }
-    redisClient.set(token, token);
+    await redisClient.set(token, token);
     res.status(200).send({ msg: "logout successful " });
   } catch (error) {
     res.status(400).send({ msg: error.message });
