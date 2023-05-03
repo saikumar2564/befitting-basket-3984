@@ -1,0 +1,135 @@
+#biggMain {
+  display: flex;
+  padding: 50px 150px 50px 150px;
+}
+#imgSignin > img {
+  width: 500px;
+  margin: 20px;
+}
+
+#main11 {
+  width: 500px;
+}
+input {
+  width: 100%;
+  height: 30px;
+}
+#topWords {
+  display: flex;
+  /* border: 2px solid red; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#topWords p {
+  font-size: 13px;
+  text-align: center;
+}
+label {
+  font-size: 10px;
+}
+#small_font {
+  font-size: 12px;
+}
+.don {
+  display: flex;
+  margin-left: -50px;
+  height: 50px;
+}
+.checkbox {
+  width: 10%;
+  height: 15px;
+}
+#button {
+  border-width: 0;
+  border-style: solid;
+  border-radius: 0;
+  box-sizing: border-box;
+  min-height: 44px;
+  width: 100%;
+  height: auto;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-family: "Famous Footwear Sans", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.046875rem;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  text-shadow: none;
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  background: #333f48;
+  color: #fff;
+  cursor: pointer;
+}
+
+p,
+#bottom-line-login-now,
+.checkbox {
+  font-family: "Famous Footwear Sans", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.7142857143;
+  color: #333f48;
+  letter-spacing: 0.0125rem;
+  font-weight: 500;
+}
+
+#bottom img {
+  width: 300px;
+}
+#bottom h2 {
+  font-weight: inherit;
+  font-style: inherit;
+
+  font-family: inherit;
+  vertical-align: baseline;
+  color: #333f48;
+  letter-spacing: 0.0125rem;
+  font-weight: 500;
+}
+
+#bottom {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#createaccount {
+  font-family: "Famous Footwear Sans", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: inherit;
+  font-family: "Famous Footwear Sans", sans-serif;
+  color: #333f48;
+  line-height: 1.1428571429;
+  letter-spacing: 0.033125rem;
+  text-rendering: auto;
+}
+h3,
+h1,
+h2 {
+  color: #333f48;
+  font-family: Tahoma, serif, thin;
+  font-size: 15px;
+}
+a {
+  font-family: Tahoma, serif, thin;
+
+  color: #333f48;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 750px){
+  #imgSignin>img{
+    display: none;
+  }
+}

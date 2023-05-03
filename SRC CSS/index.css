@@ -1,0 +1,265 @@
+/* -------------start body--------------- */
+a {
+  text-decoration: none;
+}
+#con1 {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 80px;
+  margin: 30px auto;
+}
+#con1 div {
+  width: 30%;
+  margin: 0px 12px;
+
+  background-color: rgb(65, 66, 72);
+}
+#con1 div p {
+  color: white;
+  margin: 7px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+#con1 div p:hover {
+  cursor: pointer;
+}
+#con2 {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+#con2 div {
+  width: 45%;
+}
+#con2 div img,
+video {
+  height: 400px;
+}
+
+#i {
+  width: 80%;
+  margin: 30px auto;
+}
+#i:hover {
+  cursor: pointer;
+}
+
+#con3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+#con3 div {
+  text-align: center;
+}
+#con3 div img {
+  width: 80%;
+}
+#con3 div:hover {
+  transform: translateY(5px);
+  cursor: pointer;
+}
+span {
+  color: red;
+}
+h2,
+h4,
+p,
+h3 {
+  text-align: center;
+  color: rgb(41, 40, 40);
+  margin: 20px;
+}
+p {
+  text-align: center;
+  color: rgb(72, 70, 70);
+  margin: 20px;
+}
+
+#con4 {
+  display: flex;
+  justify-content: center;
+}
+#con4 div {
+  margin: 17px;
+  position: relative;
+}
+#con4 div h4 {
+  position: absolute;
+  top: 25px;
+  left: 7px;
+  z-index: 1;
+  color: white;
+  font-size: 15px;
+}
+#con4 span {
+  font-size: 30px;
+  color: white;
+}
+#con4 div:hover {
+  cursor: pointer;
+}
+
+#con5 {
+  display: flex;
+  width: 80%;
+  margin: 30px auto;
+}
+
+#con5 div img {
+  width: 100%;
+}
+
+#con6 {
+  display: flex;
+  width: 80%;
+  margin: 30px auto;
+}
+#con6 div {
+  margin: 10px;
+  width: 100%;
+}
+
+#con6 div img {
+  width: 100%;
+}
+#con6 h2,
+h3 {
+  color: black;
+}
+
+#con7 {
+  display: flex;
+  width: 80%;
+  margin: 30px auto;
+}
+#con7 > div {
+  margin: 10px;
+  width: 100%;
+}
+#con7 > div:hover {
+  cursor: pointer;
+}
+#con7 > div > div {
+  height: 100px;
+  text-align: center;
+}
+
+#con7 > div > div > img {
+  width: 80%;
+}
+#con7 > div > div > img:hover {
+  cursor: pointer;
+
+  transform: rotateY(40deg);
+}
+#con7 h3,
+p {
+  margin: 5px;
+}
+
+hr {
+  width: 90%;
+  margin: auto;
+}
+
+#con8 {
+  display: flex;
+  justify-content: center;
+}
+#con8 div {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: rgb(72, 70, 70);
+  border-bottom: 3px solid rgb(72, 70, 70);
+}
+#con8 div:hover {
+  cursor: pointer;
+}
+h1 {
+  margin-top: 50px;
+  color: rgb(54, 53, 53);
+  text-align: center;
+}
+
+#con9 {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+#con9 > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px;
+}
+#con9 > div > div:nth-child(1) {
+  text-align: right;
+}
+#con9 > div > div:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+}
+#con9 img {
+  width: 70%;
+  text-align: right;
+}
+
+#con10 {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 80px auto 30px;
+}
+#con10 div:nth-child(2) {
+  width: 50%;
+  height: 40px;
+  text-align: right;
+}
+#con10 button {
+  background-color: rgb(60, 60, 60);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 8px;
+}
+#con10 button:hover {
+  background-color: rgb(31, 30, 30);
+}
+#con10 input {
+  width: 70%;
+  border-color: grey;
+  font-size: 20px;
+  padding: 8px;
+  margin-left: -55px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Tahoma, sans-serif;
+  color: #333f48;
+}
+a {
+  font-family: Tahoma, serif, thin;
+
+  color: #333f48;
+  font-size: 12px;
+}
+
+#con1 p {
+  font-size: 15px;
+}
+/* #signoutButton {
+  border: 2px solid red;
+  height: 50px;
+  color: black;
+} */
+/* ------------End body------------- */

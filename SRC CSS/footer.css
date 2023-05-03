@@ -1,0 +1,15 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: Tahoma, sans-serif;
+}
+a {
+  font-family: Tahoma, serif, thin;
+
+  color: #333f48;
+  font-size: 12px;
+}
