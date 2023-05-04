@@ -14,8 +14,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, res) => {
-  res.status(200).send({ msg: "hello" });
+  res.status(200).send({ msg: "home route" });
 });
+
+//main routes
 app.use("/users", userRouter);
 
 //authentication
@@ -32,6 +34,5 @@ app.listen(PORT, async () => {
   } catch (error) {
     console.log("can't connect to db");
   }
-
   console.log("server is running at " + PORT);
 });
