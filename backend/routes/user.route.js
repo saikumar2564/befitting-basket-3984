@@ -57,7 +57,7 @@ userRouter.post("/login", async (req, res) => {
     const token = await jwt.sign(
       { userID: isUserPresent._id, data: "shoes" },
       process.env.JWT_secret,
-      { expiresIn: 1000 }
+      { expiresIn: "7d" }
     );
 
     res.status(200).send({ msg: "login successful ", token: token });

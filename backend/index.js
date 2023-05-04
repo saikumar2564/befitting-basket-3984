@@ -7,6 +7,7 @@ const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.route");
 const { productRouter } = require("./routes/product.route");
 const { orderRouter } = require("./routes/order.route");
+const { passport } = require("./config/google_oauth");
 // const { authentication } = require("./middlewares/auth.middleware");
 const PORT = process.env.PORT;
 //starting the express app
@@ -17,6 +18,30 @@ app.get("/", (req, res) => {
   res.status(200).send({ msg: "home route" });
 });
 
+//google oauth route
+app.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "profile",
+      "email",
+      // "https://www.googleapis.com/auth/user.phonenumbers.read",
+    ],
+  })
+);
+
+app.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/login",
+    session: false,
+  }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    // console.log(req);
+    res.redirect("/");
+  }
+);
 //main routes
 app.use("/users", userRouter);
 
