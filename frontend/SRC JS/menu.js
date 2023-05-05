@@ -75,12 +75,15 @@ let alldata = [];
 let fetcheddata = [];
 
 //search functionality
+
 let query = localStorage.getItem("searchValue") || "";
 let queriedData = [];
+
 fetch(`https://63c77a71e52516043f3eaecd.mockapi.io/beverage?search=${query}`)
   .then((res) => res.json())
   .then((data) => {
     queriedData = data;
+
   });
 window.addEventListener("load", () => {
   fetchdata(1);
@@ -116,6 +119,7 @@ function fetchdata(pageNumber) {
     .then((data) => {
       fetcheddata = data;
       totaldatacount = alldata.length;
+
       procount.textContent = `${data[0].id}-${data[data.length - 1].id} of ${
         alldata.length - 1
       } products`;
@@ -125,6 +129,7 @@ function fetchdata(pageNumber) {
         let pages = document.getElementById("paginationstart");
         pages.style.display = "none";
       } else displaydata(data);
+
     })
     .catch((err) => {
       console.log(err);
@@ -172,7 +177,7 @@ function displaydata(data) {
       productdata = item;
       localStorage.setItem("product", JSON.stringify(productdata));
       console.log(productdata);
-      window.location.assign("/frontend/product.html");
+      window.location.assign("./product.html");
     });
 
     let prices = document.createElement("div");
@@ -366,6 +371,7 @@ document.onreadystatechange = function () {
 };
 
 //search functionality
+
 let searchquery = document.getElementById("searchquery");
 let searchbtn = document.getElementById("searchbtn");
 //cursor pointer css using js
