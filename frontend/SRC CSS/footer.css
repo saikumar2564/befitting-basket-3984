@@ -13,3 +13,27 @@ a {
   color: #333f48;
   font-size: 12px;
 }
+
+#con9 {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+#con9 > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px;
+}
+#con9 > div > div:nth-child(1) {
+  text-align: right;
+}
+#con9 > div > div:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+}
+#con9 img {
+  width: 70%;
+  text-align: right;
+}

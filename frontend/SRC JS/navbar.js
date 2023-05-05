@@ -1,6 +1,6 @@
 let signout = document.getElementById("signoutButton");
 let loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
-console.log("loginUserToken",loginUserToken)
+console.log("loginUserToken", loginUserToken);
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
 if (loginUserToken == true) {
   console.log("yes");
@@ -13,7 +13,9 @@ if (loginUserToken == true) {
   //   login_name = "";
   // });
 }
-
+let productcounts = localStorage.getItem("productcounts") || 0;
+let itemcounts = document.getElementById("itemcounts");
+itemcounts.textContent = productcounts;
 signout.addEventListener("click", () => {
   loginUserToken = false;
   login_name = "";
