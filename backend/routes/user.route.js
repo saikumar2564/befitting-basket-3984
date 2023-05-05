@@ -6,7 +6,7 @@ const { userModel } = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 // const { authentication } = require("../middlewares/auth.middleware");
-const redisClient = require("../helpers/redis");
+const { redisClient } = require("../helpers/redis");
 
 userRouter.use(cookieparser());
 //signup route
@@ -128,11 +128,16 @@ userRouter.get("/logout", async (req, res) => {
     });
 
     //saving the blacklisted refresh token in redis
-    redisClient.set("blacklistedToken", stepupRefreshToken, (error, result) => {
-      if (result) {
-        console.log("Data stored in Redis:", result);
-      }
-    });
+    redisClient.set(
+      "blacklistedToken",
+      stepupRefreshToken
+
+      // , (error, result) => {
+      //   if (result) {
+      //     console.log("Data stored in Redis:", result);
+      //   }
+      // }
+    );
     res.status(200).send({ msg: "logout successful " });
   } catch (error) {
     console.log(error);

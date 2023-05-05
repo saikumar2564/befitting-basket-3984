@@ -18,5 +18,5 @@ redisClient.on("error", (error) => {
 });
 
 redisClient.connect();
-
+redisClient.set("ghh", "ggjj");
 module.exports = { redisClient };
