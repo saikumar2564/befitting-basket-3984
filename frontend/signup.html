@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
             <nav class="navbar">
                 <div class="logo">
                     <a>
-                        <img style="width: 180px; margin: -10px;" onclick="window.location.href='index.html';"
+                        <img style="width: 120px; margin: -10px;" onclick="window.location.href='index.html';"
                             src="./image/logoAsset 3@4x-8.png" alt="" />
                     </a>
                 </div>
@@ -51,7 +53,7 @@
                         <li>
                             <a href="./menu.html" id="Menu"><strong>Menu</strong></a>
 
-                    </li>
+                        </li>
                         <li>
                             <a href="" id="New-Now"><strong>New & Now</strong></a>
                             <div id="sub-menu">
@@ -744,128 +746,20 @@
 
 
 
-    <hr style="width: 100%;margin-top: 50px;border: 2px solid  rgb(241, 9, 102);">
+
     <!-- footer code start from here -->
-    <div class="footer">
-        <footer>
-            <div class="social-media">
-                <strong>CONNECT WITH US</strong>
-                <div class="social-icons">
-                    <a href=""><i class="fa-brands fa-square-facebook fa-2x"></i></i></a>
-                    <a href=""><i class="fa-brands fa-square-pinterest fa-2x"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram fa-2x"></i></a>
-                    <a href=""><i class="fa-brands fa-youtube fa-2x"></i></a>
-                    <a href=""></a>
+    <div id="footer-placeholder"></div>
 
-                </div>
-            </div>
-            <div class="footer-links">
-                <div class="sub-links">
-                    <div class="stores">
-                        <div>STORES</div>
-                        <div>
-                            <a href="">Famously Fast Pickup</a>
-                        </div>
-                        <div>
-                            <a href="">Find A Store</a>
-                        </div>
-                    </div>
-                    <div class="stores">
-                        <div>FAMOUSLY YOU</div>
-                        <div>
-                            <a href="">Sign In/ JOin Now</a>
-                        </div>
-                        <div>
-                            <a href="">Learn Now</a>
-                        </div>
-                        <div>
-                            <a href="">Credit Card</a>
-                        </div>
-                        <div>
-                            <a href="">Mobile App</a>
-                        </div>
-                        <div>
-                            <a href="">Rewards Terms</a>
-                        </div>
-                    </div>
-                    <div class="stores">
-                        <div>HELP</div>
-                        <div>
-                            <a href="">FAQ/Contact Us</a>
-                        </div>
-                        <div>
-                            <a href="">Shipping & Returns</a>
-                        </div>
-                        <div>
-                            <a href="">Exclusions</a>
-                        </div>
-                        <div>
-                            <a href="">Track My Order</a>
-                        </div>
-                        <div>
-                            <a href="">Gift Cards</a>
-                        </div>
-                        <div>
-                            <a href="">Shoes Size Charts</a>
-                        </div>
-                        <div>
-                            <a href="">Zip</a>
-                        </div>
-                        <div>
-                            <a href="">Unsucribe from Email</a>
-                        </div>
-                        <div>
-                            <a href="">Accessibility</a>
-                        </div>
-                        <div>
-                            <a href="">Do Not Sell Or Share My</a>
-                        </div>
-                        <div>
-                            <a href="">Personal Information</a>
-                        </div>
-                    </div>
-                    <div class="stores">
-                        <div>ABOUT US</div>
-                        <div>
-                            <a href="">About Us</a>
-                        </div>
-                        <div>
-                            <a href="">Careers</a>
-                        </div>
-                        <div>
-                            <a href="">Ticket to Dream</a>
-                        </div>
-                        <div>
-                            <a href="">Site Map</a>
-                        </div>
-                        <div>
-                            <a href="">Eco-Conscious</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="img-subinfo">
-                    <img src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/rewards-images/plcc-double.png?w=+1440&hash=68621878391AE4CD59361AC547BEFA9F"
-                        alt="">
-                </div>
-                <div class="boldtag">
-                    <h5>FAMOUSLY YOU REWARDS</h5>
-                    <h5>Credit card</h5>
-                </div>
-
-            </div>
-            <div class="last-tnstruction">
-                <p><sup>1</sup> Yes, I would like to receive emails with trends, updates & special offers a few times a
-                    week. By providing my information, I am certifying that I am at least 18 years old. Note: we collect
-                    and use the information you provide in accordance with our <a class="policy" href="">Privacy
-                        Policy</a> </p>
-            </div>
-        </footer>
-    </div>
     <!-- footer code end here -->
 
 
 </body>
 <script src="SRC JS/signup.js"></script>
 <!-- <script src="SRC JS/navbar.js"></script> -->
+<script>
+    $(function () {
+        $("#footer-placeholder").load("footer.html");
+    });
+</script>
 
 </html>
