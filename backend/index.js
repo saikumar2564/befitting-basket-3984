@@ -8,7 +8,7 @@ const { userRouter } = require("./routes/user.route");
 const { productRouter } = require("./routes/product.route");
 const { orderRouter } = require("./routes/order.route");
 const { passport } = require("./config/google_oauth");
-// const { authentication } = require("./middlewares/auth.middleware");
+const { authentication } = require("./middlewares/auth.middleware");
 const PORT = process.env.PORT;
 //starting the express app
 const app = express();
@@ -46,7 +46,7 @@ app.get(
 app.use("/users", userRouter);
 
 //authentication
-// app.use(authentication);
+app.use(authentication);
 
 app.use("/products", productRouter);
 app.use("/orders", orderRouter);
