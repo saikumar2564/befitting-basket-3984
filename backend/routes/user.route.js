@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieparser = require("cookie-parser");
 const userRouter = express.Router();
 const { userModel } = require("../models/user.model");
 
@@ -7,6 +8,7 @@ const jwt = require("jsonwebtoken");
 // const { authentication } = require("../middlewares/auth.middleware");
 const redisClient = require("../helpers/redis");
 
+userRouter.use(cookieparser());
 //signup route
 userRouter.post("/signup", async (req, res) => {
   console.log(req.body);
@@ -44,7 +46,7 @@ userRouter.post("/login", async (req, res) => {
         .status(400)
         .send({ msg: "email not registered, create an account" });
     }
-
+    console.log(isUserPresent);
     const isPasswordCorrect = await bcrypt.compare(
       password,
       isUserPresent.password
@@ -55,14 +57,14 @@ userRouter.post("/login", async (req, res) => {
     }
 
     const accessToken = jwt.sign(
-      { userID: findUser._id },
+      { userID: isUserPresent._id },
       process.env.JWT_SECRET,
       {
         expiresIn: "4d",
       }
     );
     const refreshToken = jwt.sign(
-      { userID: findUser._id },
+      { userID: isUserPresent._id },
       process.env.REFRESH_SECRET,
       {
         expiresIn: "20d",
@@ -77,8 +79,9 @@ userRouter.post("/login", async (req, res) => {
     res.cookie("stepupRefreshToken", refreshToken, {
       maxAge: 1000 * 3600 * 24 * 20,
     });
-    res.status(200).send({ msg: "login successful ", token: token });
+    res.status(200).send({ msg: "login successful ", token: accessToken });
   } catch (error) {
+    console.log(error);
     res.status(400).send({ msg: error });
   }
 });
@@ -132,6 +135,7 @@ userRouter.get("/logout", async (req, res) => {
     });
     res.status(200).send({ msg: "logout successful " });
   } catch (error) {
+    console.log(error);
     res.status(400).send({ msg: error.message });
   }
 });
