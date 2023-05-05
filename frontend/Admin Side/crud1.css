@@ -1,0 +1,100 @@
+.sales-details {
+  width: 1000px;
+  height: 100%;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: row;
+}
+.sales-details > div {
+  height: 100%;
+  display: flex;
+}
+#userInfo {
+  text-align: left;
+}
+
+/* tbody td {
+  height: 10px;
+} */
+
+table {
+  padding: 20px;
+}
+tr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+tbody > tr > :nth-child(1) {
+  width: 90px;
+  /* font-size: 20px; */
+  font-size: 13px;
+}
+tbody > tr > :nth-child(2) {
+  width: 50px;
+  font-size: 13px;
+}
+tbody > tr > :nth-child(3) {
+  width: 150px;
+  padding: 15px;
+  font-size: 13px;
+}
+tbody > tr > :nth-child(4) {
+  width: 130px;
+  font-size: 13px;
+  padding: 20px;
+  /* font-size: 20px; */
+}
+tbody > tr > :nth-child(5) {
+  width: 100px;
+
+  font-size: 13px;
+}
+tbody > tr > :nth-child(6) {
+  width: 50px;
+  font-size: 13px;
+  cursor: pointer;
+}
+tbody > tr > :nth-child(7) {
+  width: 60px;
+  font-size: 13px;
+  cursor: pointer;
+}
+tbody > tr > :nth-child(8) {
+  width: 50px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+table {
+  background-color: white;
+  border: 1px solid rgb(0, 0, 0);
+  text-align: center;
+}
+
+tr {
+  border: 1px solid rgb(0, 0, 0);
+}
+table th {
+  padding: 13px;
+  background-color: #eff5f5;
+  /* border: 1px solid black; */
+}
+
+table > tbody tr {
+  height: 80px;
+}
+
+tbody {
+  text-align: center;
+}
+#userdetails {
+  display: flex;
+  align-items: center;
+}
+#userdetails > div {
+  padding: 20px;
+}
+#userdetails > div > p {
+  font-size: 15px;
+}

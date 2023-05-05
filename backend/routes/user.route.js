@@ -54,28 +54,78 @@ userRouter.post("/login", async (req, res) => {
       return res.status(400).send({ msg: "wrong password" });
     }
 
-    const token = await jwt.sign(
-      { userID: isUserPresent._id, data: "shoes" },
-      process.env.JWT_secret,
-      { expiresIn: "7d" }
+    const accessToken = jwt.sign(
+      { userID: findUser._id },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "4d",
+      }
+    );
+    const refreshToken = jwt.sign(
+      { userID: findUser._id },
+      process.env.REFRESH_SECRET,
+      {
+        expiresIn: "20d",
+      }
     );
 
+    //storing these tokens in  the cookie
+
+    res.cookie("stepupAccessToken", accessToken, {
+      maxAge: 1000 * 3600 * 24 * 4,
+    });
+    res.cookie("stepupRefreshToken", refreshToken, {
+      maxAge: 1000 * 3600 * 24 * 20,
+    });
     res.status(200).send({ msg: "login successful ", token: token });
   } catch (error) {
     res.status(400).send({ msg: error });
   }
 });
 
+//get new token from refresh token
+userRouter.get("/getnewtoken", (req, res) => {
+  const stepupRefreshToken =
+    req.cookies.stepupRefreshToken || req?.headers?.authorization;
+  try {
+    const decoded = jwt.verify(refreshtoken, process.env.REFRESH_SECRET);
+    if (decoded) {
+      const token = jwt.sign(
+        { userId: decoded.userId },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: "4d",
+        }
+      );
+      return res.send({ token: token });
+    } else {
+      res.send("invalid refresh token, plz login again");
+    }
+  } catch (error) {
+    res.status(400).send({ msg: error.msg });
+  }
+});
 //logout
 userRouter.get("/logout", async (req, res) => {
   try {
-    const logoutToken = req.headers.authorization;
+    const { stepupAccessToken, stepupRefreshToken } = req.cookies;
 
-    if (!logoutToken) {
+    console.log("stepupAccessToken", stepupAccessToken);
+    console.log("stepupRefreshToken", stepupRefreshToken);
+
+    if (!stepupAccessToken) {
       return res.status(400).send({ msg: "invalid token" });
     }
-    // await redisClient.set(logoutToken, logoutToken);
-    redisClient.set("token", logoutToken, (error, result) => {
+
+    //saving the blacklisted access token in redis
+    redisClient.set("blacklistedToken", stepupAccessToken, (error, result) => {
+      if (result) {
+        console.log("Data stored in Redis:", result);
+      }
+    });
+
+    //saving the blacklisted refresh token in redis
+    redisClient.set("blacklistedToken", stepupRefreshToken, (error, result) => {
       if (result) {
         console.log("Data stored in Redis:", result);
       }
