@@ -37,7 +37,7 @@ passport.use(
       const name = profile.displayName;
       const email = profile.emails[0].value;
       const firstName = name.split(" ")[0];
-
+      console.log(accessToken, refreshToken);
       inferGender(firstName, async function (gender) {
         // Use the gender for further processing
         console.log(gender);
