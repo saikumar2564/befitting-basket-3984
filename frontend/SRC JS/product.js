@@ -8,8 +8,8 @@ console.log(productdata);
 
 //cart item count start
 let productcounts = localStorage.getItem("productcounts") || 0;
-let itemcounts = document.getElementById("itemcounts");
-itemcounts.textContent = productcounts;
+// let itemcounts = document.getElementById("itemcounts");
+// itemcounts.textContent = productcounts;
 //cart item count code end
 
 container.innerHTML = ` <div id="roll">
@@ -195,13 +195,13 @@ function loginandlogoutnames(){
 }
 let loginlogout=document.getElementById("loginlogout")*/
 
-signout.addEventListener("click", () => {
-  loginUserToken = false;
-  login_name = "";
-  cartData = [];
-  localStorage.setItem("cart", JSON.stringify(cartData));
-  localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
-  localStorage.setItem("login_name", JSON.stringify(login_name));
-  localStorage.setItem("productsAdd", JSON.stringify(cartData));
-  window.location.href = "index.html";
-});
+// signout.addEventListener("click", () => {
+//   loginUserToken = false;
+//   login_name = "";
+//   cartData = [];
+//   localStorage.setItem("cart", JSON.stringify(cartData));
+//   localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+//   localStorage.setItem("login_name", JSON.stringify(login_name));
+//   localStorage.setItem("productsAdd", JSON.stringify(cartData));
+//   window.location.href = "index.html";
+// });
