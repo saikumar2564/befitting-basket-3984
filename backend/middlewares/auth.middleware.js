@@ -3,11 +3,14 @@ const jwt = require("jsonwebtoken");
 const { redisClient } = require("../helpers/redis");
 require("dotenv").config();
 const authentication = async (req, res, next) => {
-  console.log(req.body);
+  console.log(req);
+  console.log(req.cookies);
+  // res.send("hi");
+  // return;
   // console.log(req.body.cookie);
-  return;
-  // const token = req.headers.authorization || req.cookie.stepupAccessToken;
-  const { stepupAccessToken, stepupRefreshToken } = req.cookie;
+  // return;
+  // const stepupAccessToken = re req.headers.authorization;
+  const { stepupAccessToken, stepupRefreshToken } = req.cookies;
   if (!stepupAccessToken) {
     return res.status(400).send({ msg: "invalid token" });
   }
@@ -18,7 +21,7 @@ const authentication = async (req, res, next) => {
     return res.status(400).send({ msg: "authentication failed" });
   }
 
-  const isTokenBlacklist = await redisClient.get(token);
+  const isTokenBlacklist = await redisClient.get(stepupAccessToken);
 
   if (isTokenBlacklist) {
     return res.status(400).send({ msg: "token blacklisted" });

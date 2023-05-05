@@ -79,7 +79,7 @@ userRouter.post("/login", async (req, res) => {
     res.cookie("stepupRefreshToken", refreshToken, {
       maxAge: 1000 * 3600 * 24 * 20,
     });
-    res.status(200).send({ msg: "login successful " });
+    res.status(200).send({ msg: "login successful ", token: accessToken });
   } catch (error) {
     console.log(error);
     res.status(400).send({ msg: error });
@@ -135,6 +135,7 @@ userRouter.get("/logout", async (req, res) => {
     });
     res.status(200).send({ msg: "logout successful " });
   } catch (error) {
+    console.log(error);
     res.status(400).send({ msg: error.message });
   }
 });

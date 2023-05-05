@@ -9,9 +9,13 @@ const { productRouter } = require("./routes/product.route");
 const { orderRouter } = require("./routes/order.route");
 const { passport } = require("./config/google_oauth");
 const { authentication } = require("./middlewares/auth.middleware");
+
+const cookieparser = require("cookie-parser");
+
 const PORT = process.env.PORT;
 //starting the express app
 const app = express();
+app.use(cookieparser());
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, res) => {
