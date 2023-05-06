@@ -220,3 +220,23 @@ a{
 }
 
 /* Abhinav-- Review part styling starts here */
+.checked{
+  color:orange;
+}
+
+#reviewContainer{
+  width: 80%;
+  margin: auto;
+  /* border: 1px solid yellowgreen; */
+  display: flex;
+  justify-content: space-between;
+}
+h2.review{
+  margin-left: 8%;
+}
+.reviewcard{
+  display: block;
+}
+.reviewcard>p{
+  text-align: left;
+}
