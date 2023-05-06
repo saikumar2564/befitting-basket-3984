@@ -121,22 +121,26 @@ userRouter.get("/logout", async (req, res) => {
     }
 
     //saving the blacklisted access token in redis
-    redisClient.set("blacklistedToken", stepupAccessToken, (error, result) => {
-      if (result) {
-        console.log("Data stored in Redis:", result);
+    redisClient.rpush(
+      "blacklistedToken",
+      stepupAccessToken,
+      (error, result) => {
+        if (result) {
+          console.log("Data stored in Redis:", result);
+        }
       }
-    });
+    );
 
     //saving the blacklisted refresh token in redis
-    redisClient.set(
+    redisClient.rpush(
       "blacklistedToken",
-      stepupRefreshToken
+      stepupRefreshToken,
 
-      // , (error, result) => {
-      //   if (result) {
-      //     console.log("Data stored in Redis:", result);
-      //   }
-      // }
+      (error, result) => {
+        if (result) {
+          console.log("Data stored in Redis:", result);
+        }
+      }
     );
     res.status(200).send({ msg: "logout successful " });
   } catch (error) {
