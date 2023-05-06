@@ -1,50 +1,59 @@
-#roll p{
+#roll p {
   text-align: left;
   margin-left: 20px;
   font-weight: 100;
   font-size: 15px;
   color: grey;
 }
-#container1{
+
+#container1 {
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: auto;
 }
-#container1>div{
+
+#container1>div {
   margin: 10px;
 }
-#container1>div:nth-child(2){
+
+#container1>div:nth-child(2) {
   width: 60%;
 }
+
 button {
   background-color: rgb(76, 75, 75);
   color: aliceblue;
   width: 200px;
- font-size: 20px;
+  font-size: 20px;
   text-align: center;
   padding: 7px 12px;
   border: none;
 }
-#btn{
+
+#btn {
   background-color: rgb(73, 72, 72);
   color: aliceblue;
   width: 200px;
- font-size: 18px;
+  font-size: 18px;
   text-align: center;
   padding: 7px 12px;
   border: none;
 }
-#btn:hover{
+
+#btn:hover {
   background-color: #272727;
 }
+
 #cool {
   margin-left: 110px;
 }
-#cool p{
+
+#cool p {
   text-align: left;
 }
-.btn > button {
+
+.btn>button {
   width: 44px;
   height: 44px;
   color: black;
@@ -52,23 +61,26 @@ button {
   border-radius: 2px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #1e1e1f;
   color: white;
-  
+
 }
 
 #cont {
   width: 100%;
   position: relative;
   display: inline-block;
- 
+
 }
-#cont>img{
+
+#cont>img {
   width: 70%;
   height: 40%;
-   margin-top: 20%;
+  margin-top: 20%;
 }
+
 #cont .img-top {
   display: none;
   position: absolute;
@@ -76,9 +88,11 @@ button:hover {
   left: 0;
   z-index: 99;
 }
+
 #cont:hover .img-top {
   display: inline;
 }
+
 .one {
   border: none;
   outline: none;
@@ -87,17 +101,27 @@ button:hover {
   cursor: pointer;
   font-size: 18px;
 }
-.active, .one:hover {
+
+.active,
+.one:hover {
   background-color: #666;
   color: white;
 }
+
 /* ----------------------------------------- */
-h1,h2,h3,h4,h5,h6,p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: #393a3a;
   margin: 10px 0;
   font-weight: 100;
-      font-family: inherit;
+  font-family: inherit;
 }
+
 a {
   font-family: Tahoma, serif, thin;
   color: #333f48;
@@ -110,25 +134,31 @@ a {
   width: 90%;
   margin: auto;
 }
-#con9 > div {
+
+#con9>div {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 10px;
 }
-#con9 > div > div:nth-child(1) {
+
+#con9>div>div:nth-child(1) {
   text-align: right;
 }
-#con9 > div > div:nth-child(2) {
+
+#con9>div>div:nth-child(2) {
   text-align: left;
   padding-left: 10px;
 }
+
 #con9>div>div>img {
   width: 130%;
   height: 40px;
   text-align: right;
 }
-h4,p{
+
+h4,
+p {
   color: rgb(74, 72, 72);
 }
 
@@ -137,32 +167,38 @@ h4,p{
   width: 80%;
   margin: 60px auto;
 }
-#con7 > div {
+
+#con7>div {
   margin: 10px;
   width: 100%;
 }
-#con7 > div:hover {
+
+#con7>div:hover {
   cursor: pointer;
 }
-#con7 > div > div {
+
+#con7>div>div {
   height: 100px;
   text-align: center;
 }
 
-#con7 > div > div > img {
+#con7>div>div>img {
   width: 80%;
 }
-#con7 > div > div > img:hover {
+
+#con7>div>div>img:hover {
   cursor: pointer;
 
   transform: rotateY(40deg);
 }
+
 #con7 h3,
 p {
   margin: 5px;
   text-align: center;
 }
-a{
+
+a {
   text-decoration: none;
 }
 
@@ -172,11 +208,13 @@ a{
   width: 90%;
   margin: 80px auto 30px;
 }
+
 #con10 div:nth-child(2) {
   width: 60%;
   height: 40px;
   text-align: right;
 }
+
 #con10 button {
   background-color: rgb(60, 60, 60);
   border: none;
@@ -184,59 +222,172 @@ a{
   font-size: 20px;
   padding: 8px;
 }
+
 #con10 button:hover {
   background-color: rgb(31, 30, 30);
 }
+
 #con10 input {
   width: 55%;
   border-color: grey;
   font-size: 20px;
   padding: 8px;
 }
+
 @media only screen and (max-width: 800px) {
-  #container1{
+  #container1 {
     display: grid;
   }
-  #cont>img{
+
+  #cont>img {
     width: 40%;
   }
-  #con7{
+
+  #con7 {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  #con7>div>div>img{
+
+  #con7>div>div>img {
     width: 50%;
   }
-  #con10{
+
+  #con10 {
     display: none;
   }
-  #con9{
+
+  #con9 {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  #cool{
+
+  #cool {
     margin-left: 20px;
   }
 }
 
 /* Abhinav-- Review part styling starts here */
-.checked{
-  color:orange;
+.checked {
+  color: orange;
 }
 
-#reviewContainer{
+#reviewContainer {
   width: 80%;
   margin: auto;
   /* border: 1px solid yellowgreen; */
   display: flex;
   justify-content: space-between;
 }
-h2.review{
+
+h2.review {
   margin-left: 8%;
 }
-.reviewcard{
+
+.reviewcard {
   display: block;
 }
-.reviewcard>p{
+
+.reviewcard>p {
   text-align: left;
+}
+
+.box {
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 15px 35px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  background: #403e3d;
+  border-radius: 50px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(66, 192, 139, 0.8);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.wrapper {
+  margin: 70px auto;
+  padding: 20px;
+  background: #e7e7e7;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 2s ease-in-out;
+}
+
+.wrapper h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.wrapper .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 2s;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.wrapper .content {
+  max-height: 30%;
+  overflow: auto;
+
+}
+
+/* form design */
+.container {
+  border-radius: 5px;
+  background-color: #e7e7e7;
+  padding: 20px 0;
+}
+
+form label {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+input[type=text],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+
+}
+
+input[type='submit'] {
+  background-color: #413b3b;
+  color: #fff;
+  padding: 15px 50px;
+  cursor: pointer;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }

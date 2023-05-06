@@ -40,25 +40,30 @@
     <h2 class="review">Reviews</h2>
     <div id="reviewContainer">
         <div id="ratingchart">
-            <div> 
+            <div>
                 <span>5 stars</span> &ensp;
-                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                <progress value="65" max="100" id='myprg1'
+                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
             </div>
             <div>
                 <span>4 stars</span> &ensp;
-                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                <progress value="65" max="100" id='myprg2'
+                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
             </div>
             <div>
                 <span>3 stars</span> &ensp;
-                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                <progress value="65" max="100" id='myprg3'
+                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
             </div>
             <div>
                 <span>2 stars</span> &ensp;
-                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                <progress value="65" max="100" id='myprg4'
+                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
             </div>
             <div>
                 <span>1 stars</span> &ensp;
-                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                <progress value="65" max="100" id='myprg5'
+                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
             </div>
 
         </div>
@@ -66,15 +71,42 @@
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
             <i class="fa fa-star-half-full" style="font-size:24px"></i>
+
         </div>
-        <div id="writeReview">
-            <div>Write a review</div>
+        <div class="box" id="boxid">
+            <a href="#divOne" class="button">Write a Review</a>
+        </div>
+        <div class="overlay" id="divOne">
+            <div class="wrapper">
+                <h2>Please fill up the form</h2>
+                <a href="#boxid" class="close">&times;</a>
+                <div class="content">
+                    <div class="container">
+                        <form>
+                            <label>Review Title</label>
+                            <input type="text" id="rvtitle" placeholder="write a title for your review" required> <br>
+                            <label for="rating">Ratings</label> 
+                            <select id="rating" required>
+                                <option value="">Give ratings</option>
+                                <option value="5">&ensp; 5</option>
+                                <option value="4">&ensp; 4</option>
+                                <option value="3">&ensp; 3</option>
+                                <option value="2">&ensp; 2</option>
+                                <option value="1">&ensp; 1</option>
+                              </select> <br> <br>
+                            <label>Your Review</label>
+                            <textarea id="rvdes" placeholder="describe your thoughts..."></textarea>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
     <div id="userreviews">
         <div class="reviewcard">
-            <p> this is aman and the namee is also Aman</p> <br> <br>
+            <p> product is good </p> <br> <br>
 
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
