@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
-
+const { blacklistModel } = require("../models/blacklist.model");
 const { redisClient } = require("../helpers/redis");
 require("dotenv").config();
 const authentication = async (req, res, next) => {
-  console.log(req);
+  // console.log(req);
   console.log(req.cookies);
   // res.send("hi");
   // return;
@@ -14,7 +14,12 @@ const authentication = async (req, res, next) => {
   if (!stepupAccessToken) {
     return res.status(400).send({ msg: "invalid token" });
   }
-
+  const isTokenPresent = await blacklistModel.findOne({
+    token: stepupAccessToken,
+  });
+  if (isTokenPresent) {
+    return res.status(400).send({ msg: "login again" });
+  }
   const tokenData = await jwt.verify(stepupAccessToken, process.env.JWT_secret);
 
   if (!tokenData) {
