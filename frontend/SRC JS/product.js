@@ -208,16 +208,28 @@ let loginlogout=document.getElementById("loginlogout")*/
 
 
 // Abhinav- Review part
+
 let form = document.querySelector('.container form')
+const basicurl = 'http://localhost:8000'
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   let title = form.rvtitle.value;
   let description = form.rvdes.value;
-  let rating= form.rating.value;
-  let payload={title,rating,description}
+  let rating = +form.rating.value;
+  let payload = { title, rating, description }
   console.log(payload);
+  sendReview(payload);
 })
 
-function sendReview() {
-  
+async function sendReview(payload) {
+  let response = await fetch(`${basicurl}/products/:${1234}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'applicaton/json'
+
+    },
+    body: payload
+  })
+  let result=response.json();
+  console.log(result);
 }
