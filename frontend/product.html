@@ -15,6 +15,8 @@
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -35,18 +37,49 @@
     </div>
 
 
-    <div id="review">
-        <h2>Reviews</h2>
+    <h2 class="review">Reviews</h2>
+    <div id="reviewContainer">
         <div id="ratingchart">
+            <div> 
+                <span>5 stars</span> &ensp;
+                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+            </div>
+            <div>
+                <span>4 stars</span> &ensp;
+                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+            </div>
+            <div>
+                <span>3 stars</span> &ensp;
+                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+            </div>
+            <div>
+                <span>2 stars</span> &ensp;
+                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+            </div>
+            <div>
+                <span>1 stars</span> &ensp;
+                <progress value="65" max="100" id='myprg' style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+            </div>
 
         </div>
         <div id="ratings">
-
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <i class="fa fa-star-half-full" style="font-size:24px"></i>
         </div>
         <div id="writeReview">
-            
+            <div>Write a review</div>
         </div>
 
+    </div>
+    <div id="userreviews">
+        <div class="reviewcard">
+            <p> this is aman and the namee is also Aman</p> <br> <br>
+
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <i class="fa fa-star-half-full" style="font-size:24px"></i>
+        </div>
     </div>
 
     <!-- bottom part of product section where other shoes are shown for recommendation -->
