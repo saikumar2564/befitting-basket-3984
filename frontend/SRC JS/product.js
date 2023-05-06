@@ -205,3 +205,19 @@ let loginlogout=document.getElementById("loginlogout")*/
 //   localStorage.setItem("productsAdd", JSON.stringify(cartData));
 //   window.location.href = "index.html";
 // });
+
+
+// Abhinav- Review part
+let form = document.querySelector('.container form')
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let title = form.rvtitle.value;
+  let description = form.rvdes.value;
+  let rating= form.rating.value;
+  let payload={title,rating,description}
+  console.log(payload);
+})
+
+function sendReview() {
+  
+}
