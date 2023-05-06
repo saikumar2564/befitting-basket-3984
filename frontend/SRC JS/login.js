@@ -23,7 +23,7 @@ loginUserform.addEventListener("submit", (e) => {
 });
 
 function loginUser() {
-  fetch(`https://63c77a71e52516043f3eaecd.mockapi.io/Dominos/`)
+  fetch(`https://localhost:8000/users/login`)
     .then((res) => {
       return res.json();
     })
@@ -36,6 +36,8 @@ function loginUser() {
         ) {
           if (loginUserToken == false) {
             location.href = "../Admin Side/admin.html";
+
+            //
           } else {
             alert("Please sign out before logging as Admin");
           }
