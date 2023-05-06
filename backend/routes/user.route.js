@@ -2,6 +2,8 @@ const express = require("express");
 const cookieparser = require("cookie-parser");
 const userRouter = express.Router();
 const { userModel } = require("../models/user.model");
+const { blacklistModel } = require("../models/blacklist.model");
+const { authentication } = require("../middlewares/auth.middleware");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -91,16 +93,19 @@ userRouter.get("/getnewtoken", (req, res) => {
   const stepupRefreshToken =
     req.cookies.stepupRefreshToken || req?.headers?.authorization;
   try {
-    const decoded = jwt.verify(refreshtoken, process.env.REFRESH_SECRET);
+    const decoded = jwt.verify(stepupRefreshToken, process.env.REFRESH_SECRET);
     if (decoded) {
-      const token = jwt.sign(
+      const stepupAccessToken = jwt.sign(
         { userId: decoded.userId },
         process.env.JWT_SECRET,
         {
           expiresIn: "4d",
         }
       );
-      return res.send({ token: token });
+      res.cookie("stepupAccessToken", stepupAccessToken, {
+        maxAge: 1000 * 3600 * 24 * 4,
+      });
+      return res.send({ msg: "new token is generated" });
     } else {
       res.send("invalid refresh token, plz login again");
     }
@@ -109,7 +114,7 @@ userRouter.get("/getnewtoken", (req, res) => {
   }
 });
 //logout
-userRouter.get("/logout", async (req, res) => {
+userRouter.get("/logout", authentication, async (req, res) => {
   try {
     const { stepupAccessToken, stepupRefreshToken } = req.cookies;
 
@@ -121,18 +126,14 @@ userRouter.get("/logout", async (req, res) => {
     }
 
     //saving the blacklisted access token in redis
-    redisClient.rpush(
-      "blacklistedToken",
-      stepupAccessToken,
-      (error, result) => {
-        if (result) {
-          console.log("Data stored in Redis:", result);
-        }
+    redisClient.set("blacklistedToken", stepupAccessToken, (error, result) => {
+      if (result) {
+        console.log("Data stored in Redis:", result);
       }
-    );
+    });
 
     //saving the blacklisted refresh token in redis
-    redisClient.rpush(
+    redisClient.set(
       "blacklistedToken",
       stepupRefreshToken,
 
@@ -142,6 +143,21 @@ userRouter.get("/logout", async (req, res) => {
         }
       }
     );
+
+    const isTokenPresent = await blacklistModel.findOne({
+      token: stepupAccessToken,
+    });
+
+    if (isTokenPresent) {
+      console.log(isTokenPresent);
+      return res.status(400).send({ msg: "error while logout" });
+    }
+    console.log("jere");
+    const newBlacklistedToken = new blacklistModel({
+      token: stepupAccessToken,
+    });
+    await newBlacklistedToken.save();
+    console.log("jere22");
     res.status(200).send({ msg: "logout successful " });
   } catch (error) {
     console.log(error);
