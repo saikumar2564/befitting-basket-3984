@@ -58,11 +58,12 @@ productRouter.delete("/delete/:id", async (req, res) => {
 productRouter.post("/comment/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const { userid, msg } = req.body;
+    const { userID, msg } = req.body;
     const payload = {
-      userid,
-      msg,
-      productid: id
+      userID,
+      productid: id,
+      title, rating, description,
+      date:new Date()
     }
     const comment = new CommentModel(payload);
     await comment.save();
