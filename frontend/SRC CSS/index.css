@@ -219,14 +219,12 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
+p,h6 {
   font-family: Tahoma, sans-serif;
   color: #333f48;
 }
 a {
   font-family: Tahoma, serif, thin;
-
   color: #333f48;
   font-size: 12px;
 }
@@ -236,15 +234,15 @@ a {
 }
 
 @media screen and (min-width: 400px) and (max-width:600px){
-  #con1{
+  /* #con1{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: center;
     align-items: center;
     margin: auto;
-   /* margin-bottom: 270px; */
-  }
+   /* margin-bottom: 270px; */} */
+  
   #con2{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
