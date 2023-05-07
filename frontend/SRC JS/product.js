@@ -222,7 +222,7 @@ form.addEventListener('submit', (e) => {
 })
 
 async function sendReview(payload) {
-  let response = await fetch(`${basicurl}/products/:${1234}`, {
+  let response = await fetch(`${basicurl}/products/comment/:${productdata.id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'applicaton/json'
@@ -230,6 +230,6 @@ async function sendReview(payload) {
     },
     body: payload
   })
-  let result=response.json();
+  let result = await response.json();
   console.log(result);
 }
