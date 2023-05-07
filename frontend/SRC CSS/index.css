@@ -240,11 +240,20 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-  
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+   margin-bottom: 270px;
   }
   #con2{
-    padding-top: 200px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
   }
+  #container{
+    width:400px
+  }
+
 }
 /* #signoutButton {
   border: 2px solid red;
