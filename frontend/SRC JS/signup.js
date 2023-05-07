@@ -9,7 +9,7 @@ let registerUserEmail = document.getElementById("email");
 let registerUserPassword = document.getElementById("password");
 let registerUserbirthDay = document.getElementById("birthDay");
 let registerUserphoneNo = document.getElementById("phoneNo");
-
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
 registerUserform.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -41,16 +41,13 @@ async function registerUser() {
       birthday: registerUserbirthDay.value,
     };
 
-    let register_request = await fetch(
-      `https://63c77a71e52516043f3eaecd.mockapi.io/Dominos`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(obj),
-      }
-    );
+    let register_request = await fetch(`${URL}/users/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
     console.log(register_request);
     alert("Account created successfully");
     window.location.href = "login.html";
