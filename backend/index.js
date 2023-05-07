@@ -9,6 +9,8 @@ const { productRouter } = require("./routes/product.route");
 const { orderRouter } = require("./routes/order.route");
 const { passport } = require("./config/google_oauth");
 const { authentication } = require("./middlewares/auth.middleware");
+const swaggerUi=require("swagger-ui-express")
+const swaggerJsdoc=require("swagger-jsdoc")
 
 const cookieparser = require("cookie-parser");
 
