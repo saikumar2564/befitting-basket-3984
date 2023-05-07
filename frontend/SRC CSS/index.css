@@ -238,12 +238,12 @@ a {
 @media screen and (min-width: 400px) and (max-width:600px){
   #con1{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: center;
     align-items: center;
     margin: auto;
-   margin-bottom: 270px;
+   /* margin-bottom: 270px; */
   }
   #con2{
     display: grid;
@@ -252,6 +252,10 @@ a {
   }
   #container{
     width:400px
+  }
+  #i{
+    width: auto;
+    margin: 30px auto;
   }
 
 }
