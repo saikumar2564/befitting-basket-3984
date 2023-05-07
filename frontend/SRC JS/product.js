@@ -328,7 +328,7 @@ async function getallstars() {
     sum+=+result[i];
   }
   for (let i in result){
-    document.getElementById(`myprg${result[i]}`)=
+    // document.getElementById(`myprg${result[i]}`)=
   }
 }
 
