@@ -46,6 +46,7 @@ app.get(
     // Successful authentication, redirect home.
     // console.log(req);
     res.redirect("/");
+    res.cooki;
   }
 );
 //main routes
