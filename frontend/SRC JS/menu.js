@@ -60,16 +60,16 @@ function loginandlogoutnames(){
 }
 let loginlogout=document.getElementById("loginlogout")*/
 
-signout.addEventListener("click", () => {
-  loginUserToken = false;
-  login_name = "";
-  cartData = [];
-  localStorage.setItem("cart", JSON.stringify(cartData));
-  localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
-  localStorage.setItem("login_name", JSON.stringify(login_name));
-  localStorage.setItem("productsAdd", JSON.stringify(cartData));
-  window.location.href = "index.html";
-});
+// signout.addEventListener("click", () => {
+//   loginUserToken = false;
+//   login_name = "";
+//   cartData = [];
+//   localStorage.setItem("cart", JSON.stringify(cartData));
+//   localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+//   localStorage.setItem("login_name", JSON.stringify(login_name));
+//   localStorage.setItem("productsAdd", JSON.stringify(cartData));
+//   window.location.href = "index.html";
+// });
 
 let alldata = [];
 let fetcheddata = [];
@@ -78,12 +78,11 @@ let fetcheddata = [];
 
 let query = localStorage.getItem("searchValue") || "";
 let queriedData = [];
-
-fetch(`https://63c77a71e52516043f3eaecd.mockapi.io/beverage?search=${query}`)
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
+fetch(`${URL}/products?search=${query}`)
   .then((res) => res.json())
   .then((data) => {
     queriedData = data;
-
   });
 window.addEventListener("load", () => {
   fetchdata(1);
@@ -96,7 +95,7 @@ let checkbrand = document.querySelectorAll(".checkbrand");
 let size = document.querySelectorAll(".btn");
 let price = document.querySelectorAll(".price");
 //filter variables end
-let url = `https://63c77a71e52516043f3eaecd.mockapi.io/beverage`;
+let url = `${URL}/products`;
 fetch(url)
   .then((res) => res.json())
   .then((data) => {
@@ -109,9 +108,7 @@ let procount = document.getElementById("procount");
 let totaldatacount = null;
 
 function fetchdata(pageNumber) {
-  fetch(
-    `https://63c77a71e52516043f3eaecd.mockapi.io/beverage?page=${pageNumber}&limit=16`
-  )
+  fetch(`${URL}/products?page=${pageNumber}&limit=16`)
     .then((res) => {
       showpages(65, 16);
       return res.json();
@@ -119,7 +116,7 @@ function fetchdata(pageNumber) {
     .then((data) => {
       fetcheddata = data;
       totaldatacount = alldata.length;
-
+      console.log(fetcheddata);
       procount.textContent = `${data[0].id}-${data[data.length - 1].id} of ${
         alldata.length - 1
       } products`;
@@ -129,7 +126,6 @@ function fetchdata(pageNumber) {
         let pages = document.getElementById("paginationstart");
         pages.style.display = "none";
       } else displaydata(data);
-
     })
     .catch((err) => {
       console.log(err);
@@ -380,9 +376,7 @@ searchbtn.addEventListener("mouseover", () => {
 });
 //cursor pointer css end
 searchbtn.addEventListener("click", () => {
-  fetch(
-    `https://63c77a71e52516043f3eaecd.mockapi.io/beverage?search=${searchquery.value}`
-  )
+  fetch(`${URL}/products?search=${searchquery.value}`)
     .then((res) => res.json())
     .then((data) => {
       displaydata(data);
