@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-
-const commentSchema = mongoose.Schema(
+const {Schema,model} = require("mongoose");
+ObjectId = Schema.ObjectId;
+const commentSchema = Schema(
   {
-    userID: { type: String, required: true },
+    userID: { type: ObjectId, required: true },
     productid: { type: String, required: true },
     msg: { type: String },
     title: { type: String },
@@ -15,5 +15,5 @@ const commentSchema = mongoose.Schema(
   }
 );
 
-const CommentModel = mongoose.model("comment", commentSchema);
+const CommentModel = model("comment", commentSchema);
 module.exports = { CommentModel };

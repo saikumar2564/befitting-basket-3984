@@ -1,6 +1,6 @@
 let productdata = JSON.parse(localStorage.getItem("product")) || {};
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
-let loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
+let loginUserToken = localStorage.getItem("token")|| false;
 console.log("loginUserToken:", loginUserToken);
 let container = document.getElementById("product-container");
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
@@ -209,6 +209,13 @@ let loginlogout=document.getElementById("loginlogout")*/
 
 // Abhinav- Review part
 
+function checklogin(){
+  if(!loginUserToken){
+    window.location.href='./login.html';
+    return;
+  }
+}
+
 let form = document.querySelector('.container form')
 const basicurl = 'http://localhost:8000'
 form.addEventListener('submit', (e) => {
@@ -222,13 +229,16 @@ form.addEventListener('submit', (e) => {
 })
 
 async function sendReview(payload) {
-  let response = await fetch(`${basicurl}/products/comment/:${productdata.id}`, {
+
+  console.log(payload);
+  let response = await fetch(`${basicurl}/products/comment/${productdata.id}`, {
+
     method: 'POST',
     headers: {
-      'Content-Type': 'applicaton/json'
-
+      'Content-Type': 'application/json',
+      'Authorization': loginUserToken
     },
-    body: payload
+    body: JSON.stringify(payload)
   })
   let result = await response.json();
   console.log(result);
