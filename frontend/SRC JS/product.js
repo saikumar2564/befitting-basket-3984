@@ -331,7 +331,7 @@ async function getallstars() {
   }
   for (let i in result){
     // document.getElementById(`myprg${result[i]}`)=
-    
+   // just checkking 
   }
 }
 
