@@ -65,7 +65,7 @@ loginUserform.addEventListener("submit", (e) => {
 
 /////signout/log in button
 
-//let loginButton = document.getElementById("loginButton");
+let loginButton = document.getElementById("loginButton");
 //let signout = document.getElementById("signoutButton");
 // let signout = document.getElementById("loginlogout");
 // if (loginUserToken == true) {
@@ -105,25 +105,30 @@ loginUserform.addEventListener("submit", (e) => {
 
 let URL = `https://tame-rose-betta-boot.cyclic.app`;
 async function loginUser() {
-  try {
-    let obj = {
-      email: loginUserEmail.value,
-      password: loginUserPassword.value,
-    };
+  let data = {
+    email: loginUserEmail.value,
+    password: loginUserPassword.value,
+  };
 
-    let login_request = await fetch(`${URL}/users/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(obj),
+  // window.location.href = "login.html";
+
+  console.log(data);
+  await fetch(`${URL}/users/login`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      localStorage.setItem("token", res.token);
+      alert(JSON.stringify(res.msg));
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    console.log(login_request);
-    alert(" successfully");
-    // window.location.href = "login.html";
-  } catch (error) {
-    console.log(error);
-  }
 }
 /*let loginButton = document.getElementById("loginButton");
 let signout = document.getElementById("signoutButton");
