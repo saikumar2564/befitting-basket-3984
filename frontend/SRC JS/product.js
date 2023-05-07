@@ -1,6 +1,6 @@
 let productdata = JSON.parse(localStorage.getItem("product")) || {};
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
-let loginUserToken = localStorage.getItem("token")|| false;
+let loginUserToken = localStorage.getItem("token") || false;
 console.log("loginUserToken:", loginUserToken);
 let container = document.getElementById("product-container");
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
@@ -208,10 +208,11 @@ let loginlogout=document.getElementById("loginlogout")*/
 
 
 // Abhinav- Review part
+let userid=localStorage.getItem('userID')||false;
 
-function checklogin(){
-  if(!loginUserToken){
-    window.location.href='./login.html';
+function checklogin() {
+  if (!loginUserToken) {
+    window.location.href = './login.html';
     return;
   }
 }
@@ -238,6 +239,102 @@ async function sendReview(payload) {
     },
     body: JSON.stringify(payload)
   })
+  if(response.ok){
+    history.back();
+    getallcomments();
+  }
   let result = await response.json();
   console.log(result);
+  
 }
+
+getallcomments();
+async function getallcomments() {
+  let response = await fetch(`${basicurl}/products/comments/${productdata.id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': loginUserToken
+    }
+  })
+  let result = await response.json();
+  console.log(result.comments);
+  appendReviews(result.comments)
+}
+
+function appendReviews(data) {
+  console.log('append', data);
+  let parent = document.getElementById('userreviews');
+  parent.innerHTML = '';
+  parent.innerHTML = data.map(el =>
+    `<div class="reviewcard">
+    <p>${el.name}</p> 
+    ${
+      (() => {
+      let stars = '';
+      for (let i = 0; i < 5; i++) {
+        if (i < el.rating) {
+          stars += `<span class="fa fa-star checked"></span>`;
+        }
+        else {
+          stars += `<span class="fa fa-star"></span>`;
+        }
+      }
+      return stars;
+    })()
+    }
+
+    <span>${el.title}</span>
+    <p> ${el.description} </p> 
+    <span>${el.date.split('').slice(0,10).join('')}</span> <br>
+    ${userid==el.userID?`<button data-id='${el._id}'>Delete</button>`:''}   
+    </div>
+    `
+    ).join('')
+    // ${userid==el.userID?`<button onclick="deleteComment('${userid}','${el._id}')">Delete</button>`:''}   
+
+let delbtn=document.querySelector('.reviewcard>button');
+delbtn.addEventListener('click',async(e)=>{
+  console.log(e.target.dataset.id);
+  let response = await fetch(`${basicurl}/products/comments/${e.target.dataset.id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': loginUserToken
+    }
+  })
+  let result = await response.json();
+  if(response.ok){
+    alert(result.msg)
+    e.target.parentNode.remove();
+  }
+
+})
+
+}
+
+async function getallstars() {
+  let response = await fetch(`${basicurl}/products/stars/${productdata.id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': loginUserToken
+    }
+  })
+  let result = await response.json();
+  console.log(result);
+  let sum=0;
+  for (let i in result){
+    sum+=+result[i];
+  }
+  for (let i in result){
+    document.getElementById(`myprg${result[i]}`)=
+  }
+}
+
+getallstars();
+
+// function deleteComment(userid,commentid) {
+//   console.log(userid,commentid);
+  
+// }

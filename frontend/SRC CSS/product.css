@@ -391,3 +391,18 @@ input[type='submit'] {
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+
+.reviewcard button{
+  width: auto;
+  font-size: 15px;
+  padding: 2px 3px;
+  background-color: rgb(228, 60, 60);
+  border-radius: 5px;
+}
+
+#userreviews{
+  margin: 2% 9%;
+}
+.reviewcard {
+  margin: 2% 0 ;
+}

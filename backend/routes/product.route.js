@@ -2,7 +2,7 @@ const express = require("express");
 const productRouter = express.Router();
 const { productModel } = require("../models/product.model");
 const { CommentModel } = require("../models/comment.model");
-const { allcomments } = require("../helpers/aggregation");
+const { allcomments, allstars } = require("../helpers/aggregation");
 
 //adding products to DB
 productRouter.post("/add", async (req, res) => {
@@ -81,10 +81,36 @@ productRouter.get("/comments/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const comments = await CommentModel.aggregate(allcomments(id));
-
     res.status(200).send({ comments });
   } catch (error) {
     res.status(400).send({ msg: error.message });
   }
 });
+
+productRouter.delete("/comments/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const comment = await CommentModel.findById({_id:id});
+    const { userID } = req.body;
+    if(comment.userID.toString()!==userID) return res.status(403).send({msg:'not authorized'})
+    
+    await CommentModel.findByIdAndDelete({_id:id});
+    
+    res.status(200).send({msg:'Review Deleted' });
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+  }
+});
+
+
+productRouter.get("/stars/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const stars = await CommentModel.aggregate(allstars(id));
+    res.status(200).send(stars[0]);
+  } catch (error) {
+    res.status(400).send({ msg: error.message });
+  }
+});
+
 module.exports = { productRouter };

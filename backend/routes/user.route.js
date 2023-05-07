@@ -81,7 +81,7 @@ userRouter.post("/login", async (req, res) => {
     res.cookie("stepupRefreshToken", refreshToken, {
       maxAge: 1000 * 3600 * 24 * 20,
     });
-    res.status(200).send({ msg: "login successful ", token: accessToken });
+    res.status(200).send({ msg: "login successful ", token: accessToken, userID: isUserPresent._id });
   } catch (error) {
     console.log(error);
     res.status(400).send({ msg: error });
