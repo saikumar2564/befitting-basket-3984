@@ -22,72 +22,109 @@ loginUserform.addEventListener("submit", (e) => {
   }
 });
 
-function loginUser() {
-  fetch(`https://localhost:8000/users/login`)
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-      for (let i = 0; i < data.length; i++) {
-        if (
-          loginUserEmail.value == "admin@gmail.com" &&
-          loginUserPassword.value == "admin"
-        ) {
-          if (loginUserToken == false) {
-            location.href = "../Admin Side/admin.html";
+// function loginUser() {
+//   fetch(`http://localhost:8000/users/login`)
+//     .then((res) => {
+//       return res.json();
+//     })
+//     .then((data) => {
+//       console.log(JSON.parse(data));
+//       for (let i = 0; i < data.length; i++) {
+//         if (
+//           loginUserEmail.value == "admin@gmail.com" &&
+//           loginUserPassword.value == "admin"
+//         ) {
+//           if (loginUserToken == false) {
+//             location.href = "../Admin Side/admin.html";
 
-            //
-          } else {
-            alert("Please sign out before logging as Admin");
-          }
+//             //
+//           } else {
+//             alert("Please sign out before logging as Admin");
+//           }
 
-          return;
-        } else if (
-          data[i].email == loginUserEmail.value &&
-          data[i].password == loginUserPassword.value
-        ) {
-          loginUserToken = true;
-          localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
-          login_name = data[i].firstName;
-          localStorage.setItem("login_name", JSON.stringify(login_name));
-          console.log(loginUserToken);
-          alert("log in successful");
-          location.href = "../menu.html";
-          return;
-        }
-      }
-      alert("Invalid Details");
-      return;
-    });
-}
+//           return;
+//         } else if (
+//           data[i].email == loginUserEmail.value &&
+//           data[i].password == loginUserPassword.value
+//         ) {
+//           loginUserToken = true;
+//           localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+//           login_name = data[i].firstName;
+//           localStorage.setItem("login_name", JSON.stringify(login_name));
+//           console.log(loginUserToken);
+//           alert("log in successful");
+//           location.href = "../menu.html";
+//           return;
+//         }
+//       }
+//       alert("Invalid Details");
+//       return;
+//     });
+// }
 ////login/signout option on navbar
 
 /////signout/log in button
 
 //let loginButton = document.getElementById("loginButton");
 //let signout = document.getElementById("signoutButton");
-let signout = document.getElementById("loginlogout");
+// let signout = document.getElementById("loginlogout");
 // if (loginUserToken == true) {
 //   console.log(login_name);
 //   console.log("done");
 //   loginButton.innerText = "Hi,  " + login_name;
 // }
 
-if (loginUserToken == true) {
-  console.log("yes");
-  signout.innerText = "Hi,  " + login_name + "                   Sign Out";
-  signout.style.fontSize = "13px";
-  signout.style.fontWeight = "bolder";
-  signout.style.cursor = "pointer";
-  signout.style.marginTop = "-28px";
-  signout.style.marginLeft = "400px";
-  // signout.addEventListener("click", () => {
-  //   loginUserToken = false;
-  //   login_name = "";
-  // });
-}
+// if (loginUserToken == true) {
+//   console.log("yes");
+//   signout.innerText = "Hi,  " + login_name + "                   Sign Out";
+//   signout.style.fontSize = "13px";
+//   signout.style.fontWeight = "bolder";
+//   signout.style.cursor = "pointer";
+//   signout.style.marginTop = "-28px";
+//   signout.style.marginLeft = "400px";
+// signout.addEventListener("click", () => {
+//   loginUserToken = false;
+//   login_name = "";
+// });
+// }
 
+// function loginUser(obj) {
+//   let register_request = await fetch(`http://localhost:8000/users/login`, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify(obj),
+// });
+// console.log(register_request);
+// alert("Account created successfully");
+// window.location.href = "login.html";
+// } catch (error) {
+// console.log(error);
+// }
+
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
+async function loginUser() {
+  try {
+    let obj = {
+      email: loginUserEmail.value,
+      password: loginUserPassword.value,
+    };
+
+    let login_request = await fetch(`${URL}/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
+    console.log(login_request);
+    alert(" successfully");
+    // window.location.href = "login.html";
+  } catch (error) {
+    console.log(error);
+  }
+}
 /*let loginButton = document.getElementById("loginButton");
 let signout = document.getElementById("signoutButton");
 loginandlogoutnames();
@@ -109,13 +146,13 @@ function loginandlogoutnames(){
 }
 let loginlogout=document.getElementById("loginlogout")*/
 
-signout.addEventListener("click", () => {
-  loginUserToken = false;
-  login_name = "";
-  cartData = [];
-  localStorage.setItem("cart", JSON.stringify(cartData));
-  localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
-  localStorage.setItem("login_name", JSON.stringify(login_name));
-  localStorage.setItem("productsAdd", JSON.stringify(cartData));
-  window.location.href = "index.html";
-});
+// signout.addEventListener("click", () => {
+//   loginUserToken = false;
+//   login_name = "";
+//   cartData = [];
+//   localStorage.setItem("cart", JSON.stringify(cartData));
+//   localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+//   localStorage.setItem("login_name", JSON.stringify(login_name));
+//   localStorage.setItem("productsAdd", JSON.stringify(cartData));
+//   window.location.href = "index.html";
+// });
