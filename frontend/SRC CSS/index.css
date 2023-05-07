@@ -234,6 +234,15 @@ a {
 #con1 p {
   font-size: 15px;
 }
+
+@media screen and (min-width: 400px) and (max-width:600px){
+  #con1{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  
+  }
+}
 /* #signoutButton {
   border: 2px solid red;
   height: 50px;
