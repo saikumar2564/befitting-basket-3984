@@ -230,8 +230,10 @@ form.addEventListener('submit', (e) => {
 })
 
 async function sendReview(payload) {
+
   console.log(payload);
   let response = await fetch(`${basicurl}/products/comment/${productdata.id}`, {
+
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,17 +1,17 @@
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
 
 //search functionality
-let searchquery=document.getElementById("searchquery")
-let searchbtn=document.getElementById("searchbtn")
+let searchquery = document.getElementById("searchquery");
+let searchbtn = document.getElementById("searchbtn");
 //cursor pointer css using js
-searchbtn.addEventListener("mouseover",()=>{
-    searchbtn.style.cursor="pointer";
-})
+// searchbtn.addEventListener("mouseover",()=>{
+//     searchbtn.style.cursor="pointer";
+// })
 //cursor pointer css end
-searchbtn.addEventListener("click",()=>{
-    localStorage.setItem("searchValue",searchquery.value)
-    window.location.href="menu.html";
-})
+// searchbtn.addEventListener("click",()=>{
+//     localStorage.setItem("searchValue",searchquery.value)
+//     window.location.href="menu.html";
+// })
 let signout = document.getElementById("signoutButton");
 
 let loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
@@ -32,14 +32,14 @@ let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
 //   //   login_name = "";
 //   // });
 // }
-console.log(signout.innerText);
-signout.addEventListener("click", () => {
-  loginUserToken = false;
-  login_name = "";
-  cartData = [];
-  localStorage.setItem("cart", JSON.stringify(cartData));
-  localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
-  localStorage.setItem("login_name", JSON.stringify(login_name));
-  localStorage.setItem("productsAdd", JSON.stringify(cartData));
-  window.location.href = "index.html";
-});
+// console.log(signout.innerText);
+// signout.addEventListener("click", () => {
+//   loginUserToken = false;
+//   login_name = "";
+//   cartData = [];
+//   localStorage.setItem("cart", JSON.stringify(cartData));
+//   localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+//   localStorage.setItem("login_name", JSON.stringify(login_name));
+//   localStorage.setItem("productsAdd", JSON.stringify(cartData));
+//   window.location.href = "index.html";
+// });
