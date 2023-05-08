@@ -14,7 +14,7 @@ bagcount.textContent = productcounts;
 let estimatedtotal = document.getElementById("estimatedtotal");
 let productcard = document.getElementById("summeryproduct");
 let zipdoller = document.getElementById("zipdoller");
-
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
 // product append
 appendproduct(products);
 function appendproduct(data) {
@@ -156,7 +156,8 @@ function storingdatainorderapi() {
   obj.phoneNo = phone.value;
   obj.orderValue = totalprices;
   obj.products = products;
-  fetch(`https://63c687494ebaa8028547befe.mockapi.io/order`, {
+  console.log("obj", obj);
+  fetch(`${URL}/orders/add`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
