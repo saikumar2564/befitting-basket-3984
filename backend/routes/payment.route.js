@@ -15,7 +15,7 @@ paymentRouter.post("/create-payment", async (req, res) => {
   const options = {
     amount: amount, // amount in paise
     currency: "INR",
-    payment_capture: 1,
+    // payment_capture: 1,
     receipt: "order_rcptid_11",
   };
   try {

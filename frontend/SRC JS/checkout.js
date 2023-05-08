@@ -20,10 +20,10 @@ appendproduct(products);
 function appendproduct(data) {
   let card = `
    ${data
-     .map((item) =>
-       getcards(item.image1, item.name, item.size, item.price, item.quantity)
-     )
-     .join("")}
+      .map((item) =>
+        getcards(item.image1, item.name, item.size, item.price, item.quantity)
+      )
+      .join("")}
    `;
   productcard.innerHTML = card;
 }
@@ -74,71 +74,73 @@ let cardholdername = document.getElementById("cardholdername");
 let cardnumber = document.getElementById("cardnumber");
 let expirydate = document.getElementById("expirydate");
 let cvv = document.getElementById("cvv");
-submitbtn.addEventListener("click", () => {
-  let obj = {
-    email: email.value,
-    fname: fname.value,
-    lname: lname.value,
-    streetadrs: streetadrs.value,
-    optionaladrs: optionaladrs.value,
-    city: city.value,
-    state: state.value,
-    zipcode: zipcode.value,
-    phone: phone.value,
-  };
-  let carddetails = {
-    holdername: cardholdername.value,
-    cardnumber: cardnumber.value,
-    expirydate: expirydate.value,
-    cvv: cvv.value,
-  };
-  if (loginUserToken != true) {
-    alert("You are not logged in");
-    onclick = "window.location.href='login.html';";
-    return;
-  }
-  if (email.value == "") {
-    window.location.href = "#contact";
-    email.style.border = "2px solid red";
-  } else if (fname.value == "") {
-    window.location.href = "#myaddress";
-    fname.style.border = "2px solid red";
-  } else if (lname.value == "") {
-    window.location.href = "#myaddress";
-    lname.style.border = "2px solid red";
-  } else if (streetadrs.value == "") {
-    window.location.href = "#myaddress";
-    streetadrs.style.border = "2px solid red";
-  } else if (city.value == "") {
-    window.location.href = "#myaddress";
-    city.style.border = "2px solid red";
-  } else if (state.value == "state") {
-    window.location.href = "#myaddress";
-    state.style.border = "2px solid red";
-  } else if (zipcode.value == "") {
-    window.location.href = "#myaddress";
-    zipcode.style.border = "2px solid red";
-  } else if (phone.value == "") {
-    window.location.href = "#myaddress";
-    phone.style.border = "2px solid red";
-  } else if (cardholdername.value == "") {
-    window.location.href = "#paymentcard";
-    cardholdername.style.border = "2px solid red";
-  } else if (cardnumber.value == "") {
-    window.location.href = "#paymentcard";
-    cardnumber.style.border = "2px solid red";
-  } else if (expirydate.value == "") {
-    window.location.href = "#paymentcard";
-    expirydate.style.border = "2px solid red";
-  } else if (cvv.value == "") {
-    window.location.href = "#paymentcard";
-    cvv.style.border = "2px solid red";
-  } else {
-    console.log(obj);
-    console.log(carddetails);
-    storingdatainorderapi();
-  }
-});
+submitbtn.addEventListener("click", razorpay);
+
+  (() => {
+    let obj = {
+      email: email.value,
+      fname: fname.value,
+      lname: lname.value,
+      streetadrs: streetadrs.value,
+      optionaladrs: optionaladrs.value,
+      city: city.value,
+      state: state.value,
+      zipcode: zipcode.value,
+      phone: phone.value,
+    };
+    let carddetails = {
+      holdername: cardholdername.value,
+      cardnumber: cardnumber.value,
+      expirydate: expirydate.value,
+      cvv: cvv.value,
+    };
+    if (loginUserToken != true) {
+      alert("You are not logged in");
+      onclick = "window.location.href='login.html';";
+      return;
+    }
+    if (email.value == "") {
+      window.location.href = "#contact";
+      email.style.border = "2px solid red";
+    } else if (fname.value == "") {
+      window.location.href = "#myaddress";
+      fname.style.border = "2px solid red";
+    } else if (lname.value == "") {
+      window.location.href = "#myaddress";
+      lname.style.border = "2px solid red";
+    } else if (streetadrs.value == "") {
+      window.location.href = "#myaddress";
+      streetadrs.style.border = "2px solid red";
+    } else if (city.value == "") {
+      window.location.href = "#myaddress";
+      city.style.border = "2px solid red";
+    } else if (state.value == "state") {
+      window.location.href = "#myaddress";
+      state.style.border = "2px solid red";
+    } else if (zipcode.value == "") {
+      window.location.href = "#myaddress";
+      zipcode.style.border = "2px solid red";
+    } else if (phone.value == "") {
+      window.location.href = "#myaddress";
+      phone.style.border = "2px solid red";
+    } else if (cardholdername.value == "") {
+      window.location.href = "#paymentcard";
+      cardholdername.style.border = "2px solid red";
+    } else if (cardnumber.value == "") {
+      window.location.href = "#paymentcard";
+      cardnumber.style.border = "2px solid red";
+    } else if (expirydate.value == "") {
+      window.location.href = "#paymentcard";
+      expirydate.style.border = "2px solid red";
+    } else if (cvv.value == "") {
+      window.location.href = "#paymentcard";
+      cvv.style.border = "2px solid red";
+    } else {
+      console.log(obj);
+      console.log(carddetails);
+      storingdatainorderapi();
+    }
+  })
 
 // getting data for order page
 function storingdatainorderapi() {
@@ -184,3 +186,9 @@ let backtocartbottom = document.getElementById("backtocart");
 backtocartbottom.addEventListener("click", () => {
   window.location.assign("cart.html");
 });
+
+// ............Abhinav - Razorpay functions starts here............
+
+function razorpay() {
+  console.log('razorpay');
+}
