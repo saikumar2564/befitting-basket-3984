@@ -38,7 +38,8 @@ video {
 
 #i {
   width: 80%;
-  margin: 30px auto;
+  margin: auto;
+  text-align: center;
 }
 #i:hover {
   cursor: pointer;
@@ -219,14 +220,12 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
+p,h6 {
   font-family: Tahoma, sans-serif;
   color: #333f48;
 }
 a {
   font-family: Tahoma, serif, thin;
-
   color: #333f48;
   font-size: 12px;
 }
@@ -234,9 +233,20 @@ a {
 #con1 p {
   font-size: 15px;
 }
-/* #signoutButton {
-  border: 2px solid red;
-  height: 50px;
-  color: black;
-} */
+
+@media screen and (min-width: 400px) and (max-width:600px){
+  #con2{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  #container{
+    width:400px
+  }
+  #i{
+    width: 400px;
+    margin: auto;
+    text-align: center;
+  }
+}
 /* ------------End body------------- */
