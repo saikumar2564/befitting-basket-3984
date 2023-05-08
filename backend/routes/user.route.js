@@ -10,6 +10,17 @@ const jwt = require("jsonwebtoken");
 // const { authentication } = require("../middlewares/auth.middleware");
 const { redisClient } = require("../helpers/redis");
 
+//getting all the users
+userRouter.get("/", async (req, res) => {
+  try {
+    const getUser = await userModel.find();
+    console.log(getUser);
+    res.status(200).send(getUser);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ msg: error.message });
+  }
+});
 userRouter.use(cookieparser());
 //signup route
 userRouter.post("/signup", async (req, res) => {
