@@ -40,23 +40,7 @@ a {
   justify-content: space-between;
   margin-top: 10px;
 }
-#sub h3 {
-  margin: 0;
-  color: rgb(62, 61, 61);
-  font-family: sans-serif;
-  font-weight: 100;
-}
-span {
-  font-weight: 1000;
-}
-#extra {
-  display: flex;
-  justify-content: space-between;
-}
-#extra img {
-  width: 20%;
-  margin: 20px;
-}
+
 p {
   text-align: left;
 }
@@ -115,6 +99,23 @@ p {
 }
 #con7 p {
   font-weight: 100;
+}
+#sub h3 {
+  margin: 0;
+  color: rgb(62, 61, 61);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+span {
+  font-weight: 1000;
+}
+#extra {
+  display: flex;
+  justify-content: space-between;
+}
+#extra img {
+  width: 20%;
+  margin: 20px;
 }
 a {
   text-decoration: none;
@@ -266,7 +267,6 @@ h4 {
     display: grid;
   }
 }
-
 #itemcounts {
   font-weight: 100;
 }

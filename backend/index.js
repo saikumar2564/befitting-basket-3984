@@ -50,6 +50,37 @@ app.get(
     res.cooki;
   }
 );
+//*****fb oauth*** *
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+passport.use(new FacebookStrategy({
+    clientID: process.env.facebookid,
+    clientSecret: process.env.facebooksecret,
+    callbackURL: "http://localhost:4500/auth/facebook/callback",
+    scope: ['email'] // add the scope parameter here
+},
+    function (accessToken, refreshToken, profile, cb) {
+        // access the user's email address
+        // var email = profile.emails[0].value;
+        // console.log(email);
+        console.log(profile)
+       
+        
+        // return the user's profile to the callback function
+        return cb(null, profile);
+    }
+));
+
+
+app.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' ,session:false}),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 //main routes
 app.use("/users", userRouter);
 
