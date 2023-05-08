@@ -320,6 +320,7 @@ function appendReviews(data) {
 }
 
 async function getallstars() {
+  document.querySelector('.imgload').style.display='none'; 
   let response = await fetch(`${basicurl}/products/stars/${productdata.id}`, {
     method: 'GET',
     headers: {
@@ -377,4 +378,4 @@ async function getallstars() {
   `
 }
 
-getallstars();
+// getallstars();
