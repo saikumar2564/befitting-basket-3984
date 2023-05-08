@@ -76,71 +76,71 @@ let expirydate = document.getElementById("expirydate");
 let cvv = document.getElementById("cvv");
 submitbtn.addEventListener("click", razorpay);
 
-  (() => {
-    let obj = {
-      email: email.value,
-      fname: fname.value,
-      lname: lname.value,
-      streetadrs: streetadrs.value,
-      optionaladrs: optionaladrs.value,
-      city: city.value,
-      state: state.value,
-      zipcode: zipcode.value,
-      phone: phone.value,
-    };
-    let carddetails = {
-      holdername: cardholdername.value,
-      cardnumber: cardnumber.value,
-      expirydate: expirydate.value,
-      cvv: cvv.value,
-    };
-    if (loginUserToken != true) {
-      alert("You are not logged in");
-      onclick = "window.location.href='login.html';";
-      return;
-    }
-    if (email.value == "") {
-      window.location.href = "#contact";
-      email.style.border = "2px solid red";
-    } else if (fname.value == "") {
-      window.location.href = "#myaddress";
-      fname.style.border = "2px solid red";
-    } else if (lname.value == "") {
-      window.location.href = "#myaddress";
-      lname.style.border = "2px solid red";
-    } else if (streetadrs.value == "") {
-      window.location.href = "#myaddress";
-      streetadrs.style.border = "2px solid red";
-    } else if (city.value == "") {
-      window.location.href = "#myaddress";
-      city.style.border = "2px solid red";
-    } else if (state.value == "state") {
-      window.location.href = "#myaddress";
-      state.style.border = "2px solid red";
-    } else if (zipcode.value == "") {
-      window.location.href = "#myaddress";
-      zipcode.style.border = "2px solid red";
-    } else if (phone.value == "") {
-      window.location.href = "#myaddress";
-      phone.style.border = "2px solid red";
-    } else if (cardholdername.value == "") {
-      window.location.href = "#paymentcard";
-      cardholdername.style.border = "2px solid red";
-    } else if (cardnumber.value == "") {
-      window.location.href = "#paymentcard";
-      cardnumber.style.border = "2px solid red";
-    } else if (expirydate.value == "") {
-      window.location.href = "#paymentcard";
-      expirydate.style.border = "2px solid red";
-    } else if (cvv.value == "") {
-      window.location.href = "#paymentcard";
-      cvv.style.border = "2px solid red";
-    } else {
-      console.log(obj);
-      console.log(carddetails);
-      storingdatainorderapi();
-    }
-  })
+(() => {
+  let obj = {
+    email: email.value,
+    fname: fname.value,
+    lname: lname.value,
+    streetadrs: streetadrs.value,
+    optionaladrs: optionaladrs.value,
+    city: city.value,
+    state: state.value,
+    zipcode: zipcode.value,
+    phone: phone.value,
+  };
+  let carddetails = {
+    holdername: cardholdername.value,
+    cardnumber: cardnumber.value,
+    expirydate: expirydate.value,
+    cvv: cvv.value,
+  };
+  if (loginUserToken != true) {
+    alert("You are not logged in");
+    onclick = "window.location.href='login.html';";
+    return;
+  }
+  if (email.value == "") {
+    window.location.href = "#contact";
+    email.style.border = "2px solid red";
+  } else if (fname.value == "") {
+    window.location.href = "#myaddress";
+    fname.style.border = "2px solid red";
+  } else if (lname.value == "") {
+    window.location.href = "#myaddress";
+    lname.style.border = "2px solid red";
+  } else if (streetadrs.value == "") {
+    window.location.href = "#myaddress";
+    streetadrs.style.border = "2px solid red";
+  } else if (city.value == "") {
+    window.location.href = "#myaddress";
+    city.style.border = "2px solid red";
+  } else if (state.value == "state") {
+    window.location.href = "#myaddress";
+    state.style.border = "2px solid red";
+  } else if (zipcode.value == "") {
+    window.location.href = "#myaddress";
+    zipcode.style.border = "2px solid red";
+  } else if (phone.value == "") {
+    window.location.href = "#myaddress";
+    phone.style.border = "2px solid red";
+  } else if (cardholdername.value == "") {
+    window.location.href = "#paymentcard";
+    cardholdername.style.border = "2px solid red";
+  } else if (cardnumber.value == "") {
+    window.location.href = "#paymentcard";
+    cardnumber.style.border = "2px solid red";
+  } else if (expirydate.value == "") {
+    window.location.href = "#paymentcard";
+    expirydate.style.border = "2px solid red";
+  } else if (cvv.value == "") {
+    window.location.href = "#paymentcard";
+    cvv.style.border = "2px solid red";
+  } else {
+    console.log(obj);
+    console.log(carddetails);
+    storingdatainorderapi();
+  }
+})
 
 // getting data for order page
 function storingdatainorderapi() {
@@ -189,6 +189,45 @@ backtocartbottom.addEventListener("click", () => {
 
 // ............Abhinav - Razorpay functions starts here............
 
+let options = {
+  "key": "rzp_test_fiIwmRET6CApc2",
+  "amount": "49900",
+  "currency": "INR",
+  "name": "Dummy Academy",
+  "description": "Pay & Checkout this Course, Upgrade your DSA Skill",
+  "image": "https://media.geeksforgeeks.org/wp-content/uploads/20210806114908/dummy-200x200.png",
+  "order_id": "LnHxrI1vBpZ9Pa",
+  "handler": function (response) {
+    console.log(response)
+    alert("This step of Payment Succeeded");
+  },
+  "prefill": {
+    //Here we are prefilling random contact
+    "contact": "9876543210",
+    //name and email id, so while checkout
+    "name": "Twinkle Sharma",
+    "email": "smtwinkle@gmail.com",
+  },
+  "notes": {
+    "description": "Best Course for SDE placements",
+    "language": "Available in 4 major Languages JAVA,C/ C++, Python, Javascript",
+    "access": "This course have Lifetime Access"
+  },
+  "theme": {
+    "color": "#2300a3"
+  }
+};
+
+let razorpayObject = new Razorpay(options);
+console.log(razorpayObject);
+razorpayObject.on('payment.failed', function (response) {
+  console.log(response);
+  alert("This step of Payment Failed");
+});
 function razorpay() {
   console.log('razorpay');
+  razorpayObject.open();
 }
+
+
+
