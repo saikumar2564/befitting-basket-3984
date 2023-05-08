@@ -88,30 +88,26 @@ let loginButton = document.getElementById("loginButton");
 // });
 // }
 
-// function loginUser(obj) {
-//   let register_request = await fetch(`http://localhost:8000/users/login`, {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify(obj),
-// });
-// console.log(register_request);
-// alert("Account created successfully");
-// window.location.href = "login.html";
-// } catch (error) {
-// console.log(error);
-// }
-
-// let URL = `https://tame-rose-betta-boot.cyclic.app`;
-let URL = `http://localhost:8000`;
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
+// let URL = `http://localhost:8000`;
 async function loginUser() {
   let data = {
     email: loginUserEmail.value,
     password: loginUserPassword.value,
   };
 
-  // window.location.href = "login.html";
+  if (
+    loginUserEmail.value == "admin@gmail.com" &&
+    loginUserPassword.value == "admin"
+  ) {
+    if (loginUserToken == false) {
+      location.href = "../frontend/Admin Side/admin.html";
+    } else {
+      alert("Please sign out before logging as Admin");
+    }
+
+    return;
+  }
 
   console.log(data);
   await fetch(`${URL}/users/login`, {
@@ -127,6 +123,11 @@ async function loginUser() {
       localStorage.setItem("token", res.token);
       alert(JSON.stringify(res.msg));
       history.back();
+      loginUserToken = true;
+      localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+      login_name = "Hello User";
+      localStorage.setItem("login_name", JSON.stringify(login_name));
+      console.log(loginUserToken);
     })
     .catch((err) => {
       console.log(err);

@@ -7,10 +7,11 @@ const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.route");
 const { productRouter } = require("./routes/product.route");
 const { orderRouter } = require("./routes/order.route");
+const { paymentRouter } = require("./routes/payment.route");
 const { passport } = require("./config/google_oauth");
 const { authentication } = require("./middlewares/auth.middleware");
-const swaggerUi=require("swagger-ui-express")
-const swaggerJsdoc=require("swagger-jsdoc")
+const swaggerUi = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
 
 const cookieparser = require("cookie-parser");
 
@@ -53,10 +54,11 @@ app.get(
 app.use("/users", userRouter);
 
 //authentication
-// app.use(authentication);
 
 app.use("/products", productRouter);
+// app.use(authentication);
 app.use("/orders", orderRouter);
+app.use("/payments", paymentRouter);
 
 //listening to server
 app.listen(PORT, async () => {
