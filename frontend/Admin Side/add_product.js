@@ -1,4 +1,4 @@
-const url = `https://63c77a71e52516043f3eaecd.mockapi.io/`;
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function () {
@@ -9,7 +9,7 @@ sidebarBtn.onclick = function () {
 };
 
 async function fetch_product() {
-  let req = await fetch(`${url}beverage`);
+  let req = await fetch(`${URL}/products`);
   let res = await req.json();
   let product_details = document.querySelector(".sales-details");
   let productData = res;
@@ -19,8 +19,12 @@ async function fetch_product() {
       return `<div class="card">
         <div class="img"><img src="${el.image1}" ></div>
         <div>
-        <p><span class="name">Product ID:- </span><span class="ans-id">${el.id}</span></p>
-            <p><span class="name">Name:- </span><span class="ans-name">${el.name}</span></p>
+        <p><span class="name">Product ID:- </span><span class="ans-id">${
+          el._id || el.id
+        }</span></p>
+            <p><span class="name">Name:- </span><span class="ans-name">${
+              el.name
+            }</span></p>
             <p><span class="name">Brand:- </span> ${el.brand}</p>
             <p><span class="name">Gender:- </span> ${el.gender}</p>
             <p><span class="name">Size:- </span>${el.size}</p>
@@ -59,7 +63,7 @@ async function addProduct() {
       price: addPrice.value,
     };
 
-    let register_request = await fetch(`${url}beverage`, {
+    let register_request = await fetch(`${URL}/products/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

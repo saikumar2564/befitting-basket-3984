@@ -1,4 +1,4 @@
-const url = `https://63c77a71e52516043f3eaecd.mockapi.io/`;
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function () {
@@ -9,9 +9,9 @@ sidebarBtn.onclick = function () {
 };
 let noOfProductEdited =
   JSON.parse(localStorage.getItem("noOfProductEditedcount")) || 1;
+
 async function fetch_product() {
-  console.log("fetched");
-  let req = await fetch(`${url}beverage`);
+  let req = await fetch(`${URL}/products`);
   let res = await req.json();
   let product_details = document.querySelector(".sales-details");
   let productData = res;
@@ -21,8 +21,12 @@ async function fetch_product() {
       return `<div class="card">
         <div class="img"><img src="${el.image1}" ></div>
         <div>
-        <p><span class="name">Product ID:- </span><span class="ans-id">${el.id}</span></p>
-            <p><span class="name">Name:- </span><span class="ans-name">${el.name}</span></p>
+        <p><span class="name">Product ID:- </span><span class="ans-id">${
+          el._id || el.id
+        }</span></p>
+            <p><span class="name">Name:- </span><span class="ans-name">${
+              el.name
+            }</span></p>
             <p><span class="name">Brand:- </span> ${el.brand}</p>
             <p><span class="name">Gender:- </span> ${el.gender}</p>
             <p><span class="name">Size:- </span>${el.size}</p>
@@ -49,7 +53,6 @@ let addProductForm = document.querySelector("form");
 async function editProduct() {
   try {
     let obj = {
-      id: editId.value,
       image1: editImage1.value,
       image2: editImage2.value,
       name: editName.value,
@@ -59,13 +62,16 @@ async function editProduct() {
       price: editPrice.value,
     };
 
-    let register_request = await fetch(`${url}beverage/${editId.value}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(obj),
-    });
+    let register_request = await fetch(
+      `${URL}/products/update/${editId.value}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      }
+    );
     console.log(register_request);
     noOfProductEdited++;
     localStorage.setItem(

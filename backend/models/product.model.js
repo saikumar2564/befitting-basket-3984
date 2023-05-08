@@ -28,12 +28,12 @@ const productModel = mongoose.model("product", productSchema);
 module.exports = { productModel };
 
 // {
-//   "image1": "kkk",
-//   "image2": "kioo",
-//   "name": "Harman",
-//   "brand": "Keltic",
+//   "image1": "nnnnnnnn",
+//   "image2": "nnnnnnnn",
+//   "name": "nnnnnnnnnnn",
+//   "brand": "nnnnnnnnnn",
 //   "size": 12,
-//   "gender": "male",
+//   "gender": "nnnnnnnnnnnn",
 //   "price": 4500,
 // }
 
