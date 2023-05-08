@@ -19,12 +19,12 @@ async function fetch_product() {
       return `<div class="card">
       <div class="img"><img src="https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg" ></div>
         <div>
-            <p><span class="name">First Name:- </span><span class="ans-name">${el.firstName}</span></p>
-            <p><span class="name">Last Name:- </span> ${el.lastName}</p>
+            <p><span class="name"> Name:- </span><span class="ans-name">${el.name}</span></p>
+           
             <p><span class="name">email:- </span> ${el.email}</p>
             <p><span class="name">Phone No:- </span>${el.phoneNo}</p>
             <p><span class="name">password:- </span>***********</p>
-            <p><span class="name">birthday:- </span>${el.birthday}</p>
+            <p><span class="name">Gender:- </span>${el.gender}</p>
         </div>
     </div>`;
     })

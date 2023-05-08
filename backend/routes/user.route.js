@@ -13,10 +13,11 @@ const { redisClient } = require("../helpers/redis");
 //getting all the users
 userRouter.get("/", async (req, res) => {
   try {
-    getUser = userModel.find();
+    const getUser = await userModel.find();
     console.log(getUser);
     res.status(200).send(getUser);
   } catch (error) {
+    console.log(error);
     res.status(400).send({ msg: error.message });
   }
 });
