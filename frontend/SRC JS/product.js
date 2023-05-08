@@ -1,6 +1,6 @@
 let productdata = JSON.parse(localStorage.getItem("product")) || {};
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
-let loginUserToken = localStorage.getItem("token") || false;
+let loginUserToken = localStorage.getItem("token") || null;
 console.log("loginUserToken:", loginUserToken);
 let container = document.getElementById("product-container");
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
@@ -208,7 +208,7 @@ let loginlogout=document.getElementById("loginlogout")*/
 
 
 // Abhinav- Review part
-let userid=localStorage.getItem('userID')||false;
+let userid = localStorage.getItem('userID') || null;
 
 function checklogin() {
   if (!loginUserToken) {
@@ -241,13 +241,13 @@ async function sendReview(payload) {
     },
     body: JSON.stringify(payload)
   })
-  if(response.ok){
+  if (response.ok) {
     history.back();
     getallcomments();
   }
   let result = await response.json();
   console.log(result);
-  
+
 }
 
 getallcomments();
@@ -271,8 +271,7 @@ function appendReviews(data) {
   parent.innerHTML = data.map(el =>
     `<div class="reviewcard">
     <p>${el.name}</p> 
-    ${
-      (() => {
+    ${(() => {
       let stars = '';
       for (let i = 0; i < 5; i++) {
         if (i < el.rating) {
@@ -288,30 +287,35 @@ function appendReviews(data) {
 
     <span>${el.title}</span>
     <p> ${el.description} </p> 
-    <span>${el.date.split('').slice(0,10).join('')}</span> <br>
-    ${userid==el.userID?`<button data-id='${el._id}'>Delete</button>`:''}   
+    <span>${el.date.split('').slice(0, 10).join('')}</span> <br>
+    ${userid == el.userID ? `<button data-id='${el._id}'>Delete</button>` : ''}   
     </div>
     `
-    ).join('')
-    // ${userid==el.userID?`<button onclick="deleteComment('${userid}','${el._id}')">Delete</button>`:''}   
+  ).join('')
+  // ${userid==el.userID?`<button onclick="deleteComment('${userid}','${el._id}')">Delete</button>`:''}   
 
-let delbtn=document.querySelector('.reviewcard>button');
-delbtn.addEventListener('click',async(e)=>{
-  console.log(e.target.dataset.id);
-  let response = await fetch(`${basicurl}/products/comments/${e.target.dataset.id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': loginUserToken
+  let delbtn = document.querySelector('.reviewcard>button');
+  delbtn.addEventListener('click', async (e) => {
+    console.log(e.target.dataset.id);
+    let response = await fetch(`${basicurl}/products/comments/${e.target.dataset.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': loginUserToken
+      }
+    })
+    let result = await response.json();
+    if (response.ok) {
+      alert(result.msg)
+      e.target.parentNode.remove();
+      getallstars()
     }
-  })
-  let result = await response.json();
-  if(response.ok){
-    alert(result.msg)
-    e.target.parentNode.remove();
-  }
+    else {
+      console.log(result.msg);
+    }
 
-})
+  })
+  getallstars();
 
 }
 
@@ -325,19 +329,52 @@ async function getallstars() {
   })
   let result = await response.json();
   console.log(result);
-  let sum=0;
-  for (let i in result){
-    sum+=+result[i];
+  let [total_users, total_ratings] = [0, 0];
+
+  for (let i in result) {
+    total_users += +result[i];
+    total_ratings += (+i * (+result[i]));
   }
-  for (let i in result){
-    // document.getElementById(`myprg${result[i]}`)=
-   // just checkking 
+  document.getElementById(`ratingchart`).innerHTML = ``;
+  for (let i = 5; i > 0; i--) {
+    document.getElementById(`ratingchart`).innerHTML += `
+    <div>
+    <span>${i} stars</span> &ensp;
+    <meter id="star${i}" value="${result[i] / total_users}"></meter> <span>${result[i]}</span>
+    </div>`
   }
+
+  document.getElementById('ratings').innerHTML = `
+  <h3>Overall Ratings</h3>
+  <p>
+      <span>${(total_ratings / total_users).toFixed(1)}</span> <span>
+      ${(() => {
+      let avg = total_ratings / total_users;
+      let stars = '';
+      let count = 5;
+      console.log(Math.floor(avg));
+      for (let i = 0; i < Math.floor(avg); i++) {
+        stars += '<span class="fa fa-star checked" style="font-size:25px"></span>';
+        count--;
+      }
+      if (avg % 1){
+        stars += '<i class="fa fa-star-half-full checked" style="font-size:25px"></i>';
+        count--;
+        
+      }
+      if (count) {
+        for (let i = 0; i < count; i++) {
+          stars += '<span class="fa fa-star" style="font-size:25px"></span>';
+        }
+
+      }
+      return stars;
+    })()
+    }
+      </span>
+  </p>
+  <p>${(total_users)} Reviews</p>
+  `
 }
 
 getallstars();
-
-// function deleteComment(userid,commentid) {
-//   console.log(userid,commentid);
-  
-// }

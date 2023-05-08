@@ -406,3 +406,15 @@ input[type='submit'] {
 .reviewcard {
   margin: 2% 0 ;
 }
+.imgload{
+  width: 25%;
+}
+#ratings> p{
+  text-align: left;
+}
+#ratings> p:nth-child(2)>span{
+  font-size: 3em;
+}
+#ratings> h3{
+  margin-top: 0;
+}

@@ -53,9 +53,9 @@ app.get(
 app.use("/users", userRouter);
 
 //authentication
-// app.use(authentication);
 
 app.use("/products", productRouter);
+// app.use(authentication);
 app.use("/orders", orderRouter);
 
 //listening to server
