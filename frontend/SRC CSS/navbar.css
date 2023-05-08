@@ -20,7 +20,7 @@ body {
 #container .navbar {
   width: 100%;
   height: 151px;
-  border-bottom: 1px solid gray;
+  /* border-bottom: 1px solid gray; */
   display: flex;
   justify-content: space-between;
   background: white;
@@ -480,7 +480,7 @@ p {
     row-gap: 50px;
     column-gap: 30px;
   }
-  .social-media strong {
+  .social-media strong  {
     width: 110%;
     margin-left: 41px;
     /* float: inline-start; */
@@ -497,11 +497,25 @@ p {
     /* flex-direction: row; */
   }
   .footer .last-tnstruction {
-    width: 212%;
+    width: auto;
     padding: 20px;
     margin-left: -81px;
   }
-
+  @media screen and (min-width: 400px) and (max-width:600px){
+    /* #con1{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+     margin-bottom: 270px;
+    } */
+    #container{
+      width:400px
+    }
+  
+  }
 
 /*
 #loginlogout{
@@ -525,5 +539,4 @@ p {
 #bagcount>span{
   font-size: 20px;
 }
-
 */

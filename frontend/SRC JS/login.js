@@ -121,6 +121,7 @@ async function loginUser() {
     .then((res) => {
       console.log(res);
       localStorage.setItem("token", res.token);
+      localStorage.setItem("userID", res.userID);
       alert(JSON.stringify(res.msg));
       history.back();
       loginUserToken = true;

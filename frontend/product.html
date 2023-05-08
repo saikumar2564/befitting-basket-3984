@@ -48,12 +48,12 @@
             <div>
                 <span>4 stars</span> &ensp;
                 <progress value="65" max="100" id='myprg2'
-                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                    style="border: 1px solid green; border-radius: 5px; height: 10px;" /> 
+                
             </div>
             <div>
                 <span>3 stars</span> &ensp;
-                <progress value="65" max="100" id='myprg3'
-                    style="border: 1px solid green; border-radius: 5px; height: 10px;" />
+                <meter id="disk_d" value="0.5">60%</meter> <span>abc3</span>
             </div>
             <div>
                 <span>2 stars</span> &ensp;
@@ -85,7 +85,7 @@
                         <form>
                             <label>Review Title</label>
                             <input type="text" id="rvtitle" placeholder="write a title for your review" required> <br>
-                            <label for="rating">Ratings</label> 
+                            <label for="rating">Ratings</label>
                             <select id="rating" required>
                                 <option value="">Give ratings</option>
                                 <option value="5">&ensp; 5</option>
@@ -93,7 +93,7 @@
                                 <option value="3">&ensp; 3</option>
                                 <option value="2">&ensp; 2</option>
                                 <option value="1">&ensp; 1</option>
-                              </select> <br> <br>
+                            </select> <br> <br>
                             <label>Your Review</label>
                             <textarea id="rvdes" placeholder="describe your thoughts..."></textarea>
                             <input type="submit" value="Submit">
@@ -106,12 +106,15 @@
     </div>
     <div id="userreviews">
         <div class="reviewcard">
-            <p> product is good </p> <br> <br>
-
+            <span>Username</span> <br>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
-            <i class="fa fa-star-half-full" style="font-size:24px"></i>
+            <span>Title</span>
+            <p> Description </p>
+            <span>Date</span>
+            <button onclick="deleteComment(e)">Delete</button>
         </div>
+        <!-- <i class="fa fa-star-half-full" style="font-size:24px"></i> -->
     </div>
 
     <!-- bottom part of product section where other shoes are shown for recommendation -->
