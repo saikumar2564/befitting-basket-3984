@@ -103,7 +103,8 @@ let loginButton = document.getElementById("loginButton");
 // console.log(error);
 // }
 
-let URL = `https://tame-rose-betta-boot.cyclic.app`;
+// let URL = `https://tame-rose-betta-boot.cyclic.app`;
+let URL = `http://localhost:8000`;
 async function loginUser() {
   let data = {
     email: loginUserEmail.value,
@@ -124,7 +125,9 @@ async function loginUser() {
     .then((res) => {
       console.log(res);
       localStorage.setItem("token", res.token);
+      localStorage.setItem("userID", res.userID);
       alert(JSON.stringify(res.msg));
+      history.back();
     })
     .catch((err) => {
       console.log(err);

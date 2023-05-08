@@ -15,8 +15,16 @@ const productSchema = mongoose.Schema(
     versionkey: false,
   }
 );
+productSchema.index(
+  { name: "text", brand: "text" },
+  async function (err, result) {
+    if (err) throw err;
 
+    console.log("Text index created.");
+  }
+);
 const productModel = mongoose.model("product", productSchema);
+
 module.exports = { productModel };
 
 // {
