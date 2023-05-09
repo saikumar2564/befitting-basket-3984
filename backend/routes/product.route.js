@@ -3,6 +3,7 @@ const productRouter = express.Router();
 const { productModel } = require("../models/product.model");
 const { CommentModel } = require("../models/comment.model");
 const { allcomments, allstars } = require("../helpers/aggregation");
+const { authentication } = require("../middlewares/auth.middleware");
 
 //adding products to DB
 productRouter.post("/add", async (req, res) => {
@@ -78,24 +79,17 @@ productRouter.delete("/delete/:id", async (req, res) => {
 });
 
 // add comments
-productRouter.post("/comment/:id", async (req, res) => {
+productRouter.post("/comment/:id", authentication, async (req, res) => {
   try {
     const id = req.params.id;
     console.log(req.body);
     const { userID, title, rating, description } = req.body;
     const payload = {
-
-
-
       userID,
       productid: id,
       title, rating, description,
       date: new Date()
     }
-
-    console.log(payload);
-    // const comment = new CommentModel(payload);
-    // await comment.save();
     await CommentModel.findOneAndUpdate({ userID }, payload, { upsert: true });
 
     res.status(200).send({ msg: "comment is saved" });
@@ -114,16 +108,16 @@ productRouter.get("/comments/:id", async (req, res) => {
   }
 });
 
-productRouter.delete("/comments/:id", async (req, res) => {
+productRouter.delete("/comments/:id", authentication, async (req, res) => {
   try {
     const id = req.params.id;
-    const comment = await CommentModel.findById({_id:id});
+    const comment = await CommentModel.findById({ _id: id });
     const { userID } = req.body;
-    if(comment.userID.toString()!==userID) return res.status(403).send({msg:'not authorized'})
-    
-    await CommentModel.findByIdAndDelete({_id:id});
-    
-    res.status(200).send({msg:'Review Deleted' });
+    if (comment.userID.toString() !== userID) return res.status(403).send({ msg: 'not authorized' })
+
+    await CommentModel.findByIdAndDelete({ _id: id });
+
+    res.status(200).send({ msg: 'Review Deleted' });
   } catch (error) {
     res.status(400).send({ msg: error.message });
   }
