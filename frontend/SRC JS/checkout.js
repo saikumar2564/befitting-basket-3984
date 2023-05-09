@@ -189,45 +189,85 @@ backtocartbottom.addEventListener("click", () => {
 
 // ............Abhinav - Razorpay functions starts here............
 
-let options = {
-  "key": "rzp_test_fiIwmRET6CApc2",
-  "amount": "49900",
-  "currency": "INR",
-  "name": "Dummy Academy",
-  "description": "Pay & Checkout this Course, Upgrade your DSA Skill",
-  "image": "https://media.geeksforgeeks.org/wp-content/uploads/20210806114908/dummy-200x200.png",
-  "order_id": "LnHxrI1vBpZ9Pa",
-  "handler": function (response) {
-    console.log(response)
-    alert("This step of Payment Succeeded");
-  },
-  "prefill": {
-    //Here we are prefilling random contact
-    "contact": "9876543210",
-    //name and email id, so while checkout
-    "name": "Twinkle Sharma",
-    "email": "smtwinkle@gmail.com",
-  },
-  "notes": {
-    "description": "Best Course for SDE placements",
-    "language": "Available in 4 major Languages JAVA,C/ C++, Python, Javascript",
-    "access": "This course have Lifetime Access"
-  },
-  "theme": {
-    "color": "#2300a3"
-  }
-};
 
-let razorpayObject = new Razorpay(options);
-console.log(razorpayObject);
-razorpayObject.on('payment.failed', function (response) {
-  console.log(response);
-  alert("This step of Payment Failed");
-});
-function razorpay() {
-  console.log('razorpay');
+async function razorpay(amount) {
+  amount = 500; //Get from cart value (in paise);
+  console.log('payment process started...');
+
+  let response = await fetch('http://localhost:8000/payments/create-payment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ amount })
+  })
+  let order = await response.json();
+  console.log(order);
+  if (response.ok) {
+    makepayment(order);
+  }
+
+}
+
+function makepayment(obj) {
+  let options = {
+    "key": "rzp_test_jz2MPO6H96PjF0",
+    "amount": obj.amount,
+    "currency": "INR",
+    "name": "Dummy Academy",
+    "description": "Pay & Checkout this Course, Upgrade your DSA Skill",
+    "image": "https://media.geeksforgeeks.org/wp-content/uploads/20210806114908/dummy-200x200.png",
+    "order_id": obj.id,
+    "handler": function (response) {
+      alert("This step of Payment Succeeded");
+      verifypayment(response);
+    },
+    "prefill": {
+      //Here we are prefilling random contact
+      "contact": "9876543210",
+      //name and email id, so while checkout
+      "name": "abhinav",
+      "email": "abhinav@gmail.com",
+    },
+    "notes": {
+      "description": "Best Course for SDE placements",
+      "language": "Available in 4 major Languages JAVA,C/ C++, Python, Javascript",
+      "access": "This course have Lifetime Access"
+    },
+    "theme": {
+      "color": "#2300a3"
+    }
+  };
+
+  let razorpayObject = new Razorpay(options);
+  razorpayObject.on('payment.failed', function (response) {
+    alert("This step of Payment Failed");
+  });
   razorpayObject.open();
 }
 
-
+async function verifypayment(obj){
+  console.log('verification initiated...');
+  let response = await fetch('http://localhost:8000/payments/verifyOrder', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-razorpay-signature': obj.razorpay_signature
+    },
+    body: JSON.stringify({ order_id:obj.razorpay_order_id, payment_id:obj.razorpay_payment_id })
+  })
+  let order = await response.json();
+  console.log(order);
+  if (response.ok) {
+    if(order.success) {
+      alert('Payment Verified')
+    }
+    else{
+      alert('Payment couldn\'t verified');      
+    }
+  }
+  else{
+    alert (order);
+  }
+}
 
