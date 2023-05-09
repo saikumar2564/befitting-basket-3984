@@ -1,4 +1,4 @@
-const url = `https://63c687494ebaa8028547befe.mockapi.io/`;
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
 let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".sidebarBtn");
 sidebarBtn.onclick = function () {
@@ -9,7 +9,7 @@ sidebarBtn.onclick = function () {
 };
 let product_details = document.querySelector(".sales-details");
 async function fetch_product() {
-  let req = await fetch(`${url}order`);
+  let req = await fetch(`${URL}/orders`);
   let res = await req.json();
 
   let productData = res;

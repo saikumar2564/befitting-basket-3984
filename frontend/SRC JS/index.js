@@ -1,8 +1,8 @@
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
 
 //search functionality
-let searchquery = document.getElementById("searchquery");
-let searchbtn = document.getElementById("searchbtn");
+// let searchquery = document.getElementById("searchquery");
+// let searchbtn = document.getElementById("searchbtn");
 //cursor pointer css using js
 // searchbtn.addEventListener("mouseover",()=>{
 //     searchbtn.style.cursor="pointer";
@@ -12,11 +12,11 @@ let searchbtn = document.getElementById("searchbtn");
 //     localStorage.setItem("searchValue",searchquery.value)
 //     window.location.href="menu.html";
 // })
-let signout = document.getElementById("signoutButton");
+// let signout = document.getElementById("signoutButton");
 
-let loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
-console.log(loginUserToken, "loginUserToken");
-let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
+// let loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
+// console.log(loginUserToken, "loginUserToken");
+// let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
 // if (loginUserToken == true) {
 //   console.log("yes");
 //   signout.innerText = "Hi,  " + login_name + "                   Sign Out";
