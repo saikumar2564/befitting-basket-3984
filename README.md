@@ -11,7 +11,7 @@ A wide variety of footwear for men, women, and children. Easy navigation and sea
 
 Sample Link
 
-A sample of our website is available at:
+A sample of our website is available at:https://quiet-boba-7731ba.netlify.app/
 
 Contact Us
 
