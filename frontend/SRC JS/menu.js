@@ -1,6 +1,6 @@
 let productdata = JSON.parse(localStorage.getItem("product")) || null;
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
-
+let URL = `https://tame-rose-betta-boot.cyclic.app`;
 //cart item count start
 let productcounts = localStorage.getItem("productcounts") || 0;
 let itemcounts = document.getElementById("itemcounts");
@@ -18,26 +18,26 @@ console.log(login_name);
 
 //let loginButton = document.getElementById("loginButton");
 //let signout = document.getElementById("signoutButton");
-let signout = document.getElementById("loginlogout");
+// let signout = document.getElementById("loginlogout");
 // if (loginUserToken == true) {
 //   console.log(login_name);
 //   console.log("done");
 //   loginButton.innerText = "Hi,  " + login_name;
 // }
 
-if (loginUserToken == true) {
-  console.log("yes");
-  signout.innerText = "Hi,  " + login_name + "                   Sign Out";
-  signout.style.fontSize = "13px";
-  signout.style.fontWeight = "bolder";
-  signout.style.cursor = "pointer";
-  signout.style.marginTop = "-30px";
-  signout.style.marginLeft = "400px";
-  // signout.addEventListener("click", () => {
-  //   loginUserToken = false;
-  //   login_name = "";
-  // });
-}
+// if (loginUserToken == true) {
+//   console.log("yes");
+//   signout.innerText = "Hi,  " + login_name + "                   Sign Out";
+//   signout.style.fontSize = "13px";
+//   signout.style.fontWeight = "bolder";
+//   signout.style.cursor = "pointer";
+//   signout.style.marginTop = "-30px";
+//   signout.style.marginLeft = "400px";
+// signout.addEventListener("click", () => {
+//   loginUserToken = false;
+//   login_name = "";
+// });
+// }
 
 /*let loginButton = document.getElementById("loginButton");
 let signout = document.getElementById("signoutButton");
@@ -78,7 +78,7 @@ let fetcheddata = [];
 
 let query = localStorage.getItem("searchValue") || "";
 let queriedData = [];
-let URL = `https://tame-rose-betta-boot.cyclic.app`;
+
 fetch(`${URL}/products?search=${query}`)
   .then((res) => res.json())
   .then((data) => {
