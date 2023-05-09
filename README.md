@@ -13,7 +13,7 @@ Sample Link
 
 A sample of our website is available at:https://quiet-boba-7731ba.netlify.app/
 
-Contact Us
+Contact Us 
 
 If you have any questions or feedback, please contact us at: info@stepup&field.com. We are always happy to hear from our customers and are dedicated to providing the best possible shopping experience.
 
