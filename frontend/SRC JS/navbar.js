@@ -1,6 +1,6 @@
 let signout = document.getElementById("signoutButton");
 URL = `https://tame-rose-betta-boot.cyclic.app`;
-loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
+loginUserToken = JSON.parse(localStorage.getItem("loginUserToken")) || false;
 console.log("loginUserToken", loginUserToken);
 login_name = JSON.parse(localStorage.getItem("login_name")) || [];
 console.log("login name", login_name);
@@ -19,13 +19,16 @@ productcounts = localStorage.getItem("productcounts") || 0;
 itemcounts = document.getElementById("itemcounts");
 itemcounts.textContent = productcounts;
 signout.addEventListener("click", () => {
-  logoutUser();
+  // logoutUser();
   loginUserToken = false;
   login_name = "";
   cartData = [];
+  localStorage.setItem("loginUserToken", JSON.stringify(loginUserToken));
+  localStorage.setItem("login_name", JSON.stringify(login_name));
+
   localStorage.setItem("cart", JSON.stringify(cartData));
   localStorage.setItem("productsAdd", JSON.stringify(cartData));
-  // window.location.href = "index.html";
+  window.location.href = "index.html";
 });
 
 async function logoutUser() {
