@@ -191,8 +191,9 @@ backtocartbottom.addEventListener("click", () => {
 
 
 async function razorpay(amount) {
-  amount = 500; //Get from cart value (in paise);
-  console.log('payment process started...');
+  amount = (+totalprices)*100; //Get from cart value (in paise);
+
+  console.log('payment process started...',totalprices);
 
   let response = await fetch('http://localhost:8000/payments/create-payment', {
     method: 'POST',

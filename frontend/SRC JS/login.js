@@ -123,9 +123,9 @@ async function loginUser() {
       localStorage.setItem("token", res.token);
       localStorage.setItem("userID", res.userID);
       alert(JSON.stringify(res.msg));
-      history.back();
+      // history.back();
       loginUserToken = true;
-      localStorage.setItem("loginUser", JSON.stringify(loginUserToken));
+      localStorage.setItem("loginUserToken", JSON.stringify(loginUserToken));
       login_name = "Hello User";
       localStorage.setItem("login_name", JSON.stringify(login_name));
       console.log(loginUserToken);

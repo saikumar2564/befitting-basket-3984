@@ -1,6 +1,6 @@
 let productdata = JSON.parse(localStorage.getItem("product")) || {};
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
-let loginUserToken = localStorage.getItem("token") || null;
+let loginUserToken = localStorage.getItem("loginUserToken") || false;
 console.log("loginUserToken:", loginUserToken);
 let container = document.getElementById("product-container");
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
@@ -77,8 +77,8 @@ btn.addEventListener("click", function () {
   // addTocart(el);
   let clickcount = 0;
   clickcount++;
-
-  if (loginUserToken == false) {
+  console.log(loginUserToken);
+  if (!loginUserToken ) {
     alert("Please Log in First");
   } else {
     if (duplicate(productdata) == false) {
@@ -153,26 +153,26 @@ for (var i = 0; i < btns.length; i++) {
 
 //let loginButton = document.getElementById("loginButton");
 //let signout = document.getElementById("signoutButton");
-let signout = document.getElementById("loginlogout");
+// let signout = document.getElementById("loginlogout");
 // if (loginUserToken == true) {
 //   console.log(login_name);
 //   console.log("done");
 //   loginButton.innerText = "Hi,  " + login_name;
 // }
 
-if (loginUserToken == true) {
-  console.log("yes");
-  signout.innerText = "Hi,  " + login_name + "                   Sign Out";
-  signout.style.fontSize = "13px";
-  signout.style.fontWeight = "bolder";
-  signout.style.cursor = "pointer";
-  signout.style.marginTop = "-28px";
-  signout.style.marginLeft = "280px";
+// if (loginUserToken == true) {
+//   console.log("yes");
+//   signout.innerText = "Hi,  " + login_name + "                   Sign Out";
+//   signout.style.fontSize = "13px";
+//   signout.style.fontWeight = "bolder";
+//   signout.style.cursor = "pointer";
+//   signout.style.marginTop = "-28px";
+//   signout.style.marginLeft = "280px";
   // signout.addEventListener("click", () => {
   //   loginUserToken = false;
   //   login_name = "";
   // });
-}
+// }
 
 /*let loginButton = document.getElementById("loginButton");
 let signout = document.getElementById("signoutButton");
@@ -295,6 +295,7 @@ function appendReviews(data) {
   // ${userid==el.userID?`<button onclick="deleteComment('${userid}','${el._id}')">Delete</button>`:''}   
 
   let delbtn = document.querySelector('.reviewcard>button');
+  if(delbtn){
   delbtn.addEventListener('click', async (e) => {
     console.log(e.target.dataset.id);
     let response = await fetch(`${basicurl}/products/comments/${e.target.dataset.id}`, {
@@ -314,7 +315,7 @@ function appendReviews(data) {
       console.log(result.msg);
     }
 
-  })
+  })}
   getallstars();
 
 }
