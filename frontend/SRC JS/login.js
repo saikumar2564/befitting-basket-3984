@@ -5,6 +5,7 @@ let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
 let loginUserToken = JSON.parse(localStorage.getItem("loginUser")) || false;
 console.log(loginUserToken, "loginUserToken");
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
+let URL = `http://localhost:8000`;
 loginUserform.addEventListener("submit", (e) => {
   e.preventDefault();
   //login box border red if empty
@@ -88,8 +89,8 @@ let loginButton = document.getElementById("loginButton");
 // });
 // }
 
-let URL = `https://tame-rose-betta-boot.cyclic.app`;
-// let URL = `http://localhost:8000`;
+// let URL = `https://tame-rose-betta-boot.cyclic.app`;
+
 async function loginUser() {
   let data = {
     email: loginUserEmail.value,
@@ -110,6 +111,7 @@ async function loginUser() {
   }
 
   console.log(data);
+  console.log(URL);
   await fetch(`${URL}/users/login`, {
     method: "POST",
     headers: {
@@ -123,7 +125,7 @@ async function loginUser() {
       localStorage.setItem("token", res.token);
       localStorage.setItem("userID", res.userID);
       alert(JSON.stringify(res.msg));
-      // history.back();
+      history.back();
       loginUserToken = true;
       localStorage.setItem("loginUserToken", JSON.stringify(loginUserToken));
       login_name = "Hello User";

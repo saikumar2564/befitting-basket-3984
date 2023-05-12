@@ -128,7 +128,13 @@ productRouter.get("/stars/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const stars = await CommentModel.aggregate(allstars(id));
-    res.status(200).send(stars[0]);
+    
+    if(stars.length){
+      res.status(200).send({ans:stars[0]});
+      return;
+    }
+    res.status(200).send({ans:{1:0,2:0,3:0,4:0,5:0}});
+    
   } catch (error) {
     res.status(400).send({ msg: error.message });
   }
