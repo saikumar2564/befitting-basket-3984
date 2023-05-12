@@ -1,6 +1,6 @@
 let productdata = JSON.parse(localStorage.getItem("product")) || {};
 let cartData = JSON.parse(localStorage.getItem("productsAdd")) || [];
-let loginUserToken = localStorage.getItem("loginUserToken") || false;
+let loginUserToken = localStorage.getItem("loginUserToken") || false; 
 console.log("loginUserToken:", loginUserToken);
 let container = document.getElementById("product-container");
 let login_name = JSON.parse(localStorage.getItem("login_name")) || [];
@@ -209,6 +209,7 @@ let loginlogout=document.getElementById("loginlogout")*/
 
 // Abhinav- Review part
 let userid = localStorage.getItem('userID') || null;
+let usertoken = localStorage.getItem('token') || null;
 
 function checklogin() {
   if (!loginUserToken) {
@@ -237,7 +238,7 @@ async function sendReview(payload) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': loginUserToken
+      'Authorization': usertoken
     },
     body: JSON.stringify(payload)
   })
@@ -256,7 +257,7 @@ async function getallcomments() {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': loginUserToken
+      'Authorization': usertoken
     }
   })
   let result = await response.json();
@@ -302,7 +303,7 @@ function appendReviews(data) {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': loginUserToken
+        'Authorization': usertoken
       }
     })
     let result = await response.json();
@@ -326,11 +327,12 @@ async function getallstars() {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': loginUserToken
+      'Authorization': usertoken
     }
   })
   let result = await response.json();
   console.log(result);
+  result=result.ans;
   let [total_users, total_ratings] = [0, 0];
 
   for (let i in result) {
@@ -346,6 +348,10 @@ async function getallstars() {
     </div>`
   }
 
+  if(!(total_ratings / total_users)) {
+    document.getElementById('ratings').innerHTML = `<h3>No Ratings Available</h3>`;
+    return
+  }
   document.getElementById('ratings').innerHTML = `
   <h3>Overall Ratings</h3>
   <p>
