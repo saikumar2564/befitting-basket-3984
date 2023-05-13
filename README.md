@@ -13,6 +13,18 @@ Sample Link
 
 A sample of our website is available at:(https://genuine-marzipan-fb88d1.netlify.app/)
 
+
+Routes
+
+Frontend
+all the pages which mentioned below
+
+Backend Routes
+user data route
+product data route
+orders data route
+reviews data route
+
 Pages
 
 Home Page
