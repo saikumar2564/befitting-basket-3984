@@ -38,6 +38,14 @@ Home Page
 login page
 ![image](https://github.com/saikumar2564/befitting-basket-3984/assets/77447439/c84ff277-b424-4c45-86ea-b97dac7cfa9e)
 
+Menu Page
+![image](https://github.com/saikumar2564/befitting-basket-3984/assets/112858857/a9a0cddd-d6bc-44f4-a72a-e41b8b11d1a3)
+
+Products Page
+![image](https://github.com/saikumar2564/befitting-basket-3984/assets/112858857/e4ad9a48-0f18-4678-b9a7-8cf0fbc89efe)
+![image](https://github.com/saikumar2564/befitting-basket-3984/assets/112858857/210e29b8-5c3b-49a8-9a72-351584dbf7d8)
+
+
 Admin Home Page
 ![image](https://github.com/saikumar2564/befitting-basket-3984/assets/77447439/51dc66ea-6d75-43c4-b779-fdde047afba5)
 
