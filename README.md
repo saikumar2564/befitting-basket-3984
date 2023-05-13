@@ -13,6 +13,23 @@ Sample Link
 
 A sample of our website is available at:(https://genuine-marzipan-fb88d1.netlify.app/)
 
+Pages
+
+Home Page
+![screencapture-127-0-0-1-5500-frontend-index-html-2023-05-13-15_15_58](https://github.com/saikumar2564/befitting-basket-3984/assets/77447439/8f088989-773a-4c14-9613-8048abea4c60)
+
+login page
+![image](https://github.com/saikumar2564/befitting-basket-3984/assets/77447439/c84ff277-b424-4c45-86ea-b97dac7cfa9e)
+
+Admin Home Page
+![image](https://github.com/saikumar2564/befitting-basket-3984/assets/77447439/51dc66ea-6d75-43c4-b779-fdde047afba5)
+
+
+Admin Product Page
+![image](https://github.com/saikumar2564/befitting-basket-3984/assets/77447439/8412ab54-0278-4374-804a-e217ab86faf9)
+
+
+
 Contact Us 
 
 If you have any questions or feedback, please contact us at: info@stepup&field.com. We are always happy to hear from our customers and are dedicated to providing the best possible shopping experience.
